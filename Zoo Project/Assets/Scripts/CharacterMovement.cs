@@ -4,25 +4,26 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
-    private Vector3 position;
-    private CharacterController controller;
-    public int speed;
+    [SerializeField] private float moveSpeed = 5f; // Movement speed of the character
+    [SerializeField] private float turnSpeed = 180f; // Turn speed of the camera
+    private Rigidbody rb; // Rigidbody component of the character
+    public 
 
     // Start is called before the first frame update
     void Start()
     {
-        controller = GetComponent<CharacterController>();
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
+        float horizontalInput = Input.GetAxis("Horizontal"); // Get the horizontal input
+        float verticalInput = Input.GetAxis("Vertical"); // Get the vertical input
 
-        Vector3 movement_v = new Vector3(horizontal, 0, vertical) * speed * Time.deltaTime;
-        Debug.Log(movement_v);
+        Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput); // Create a movement vector
+        movement = movement.normalized * moveSpeed * Time.fixedDeltaTime; // Scale the movement vector by the speed and fixed time step
 
-        controller.Move(movement_v);
+        rb.MovePosition(transform.position + movement); // Move the character's position using the Rigidbody component
     }
 }

@@ -1,29 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f; // Movement speed of the character
-    [SerializeField] private float turnSpeed = 180f; // Turn speed of the camera
-    private Rigidbody rb; // Rigidbody component of the character
-    public 
+    [SerializeField] private float moveSpeed = 5f; 
+    [SerializeField] private float mouseSensitivity = 2f;
+    float cameraVerticalRotation;
+    public Transform player;
 
-    // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        float horizontalInput = Input.GetAxis("Horizontal"); // Get the horizontal input
-        float verticalInput = Input.GetAxis("Vertical"); // Get the vertical input
 
-        Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput); // Create a movement vector
-        movement = movement.normalized * moveSpeed * Time.fixedDeltaTime; // Scale the movement vector by the speed and fixed time step
+        float inputX = Input.GetAxis("Mouse X") * mouseSensitivity;
+        float inputY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
-        rb.MovePosition(transform.position + movement); // Move the character's position using the Rigidbody component
+        // Vertical rotation of camera
+        cameraVerticalRotation -= inputY;
+        cameraVerticalRotation = Mathf.Clamp(cameraVerticalRotation, -90f, 90f);
+        transform.localEulerAngles = Vector3.right * cameraVerticalRotation;
+
+        player.Rotate(Vector3.up * inputX);
+
+
+        //Vector3 movement = new Vector3(horizontalInput, 0f, verticalInput); // Create a movement vector
+        //movement = movement.normalized * moveSpeed * Time.fixedDeltaTime; // Scale the movement vector by the speed and fixed time step
+
     }
 }

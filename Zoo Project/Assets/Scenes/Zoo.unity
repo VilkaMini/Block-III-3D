@@ -284,7 +284,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  groundDrag: 5
+  groundDrag: 4
+  jumpForce: 10
+  jumpCooldown: 0.25
+  airMultiplier: 2
   orientation: {fileID: 963194228}
   playerHeight: 3.5
   whatIsGround:

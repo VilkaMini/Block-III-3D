@@ -6,11 +6,17 @@ using UnityEngine;
 public class CharacterMovement : MonoBehaviour
 {
     public float moveSpeed;
+    public float groundDrag;
 
     public Transform orientation;
 
     float horizontalInput;
     float verticalInput;
+
+    [Header("Ground Check")]
+    public float playerHeight;
+    public LayerMask whatIsGround;
+    bool grounded;
 
     Vector3 moveDirection;
 
@@ -27,8 +33,16 @@ public class CharacterMovement : MonoBehaviour
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
 
-        rb.rotation[0] = 0;
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
+        if (grounded)
+        {
+            rb.drag = groundDrag;
+        }
+        else
+        {
+            rb.drag = 0;
+        }
 
     }
 

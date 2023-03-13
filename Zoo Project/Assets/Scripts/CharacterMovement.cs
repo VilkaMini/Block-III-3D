@@ -7,6 +7,7 @@ public class CharacterMovement : MonoBehaviour
 {
     [Header("Movement")]
     public float moveSpeed;
+    private float moveSpeedTemp;
     public float groundDrag;
     public float jumpForce;
     public float jumpCooldown;
@@ -28,6 +29,7 @@ public class CharacterMovement : MonoBehaviour
 
     void Start()
     {
+        moveSpeedTemp = moveSpeed;
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation= true;
     }
@@ -61,6 +63,18 @@ public class CharacterMovement : MonoBehaviour
         }
 
     }
+
+    // Don't get stuck on walls
+    private void OnCollisionStay(Collision collision)
+    {
+        if (!grounded) {
+            moveSpeed = 0.1f;
+        }
+        else
+        {
+            moveSpeed = moveSpeedTemp;
+        }
+    }   
 
     private void FixedUpdate()
     {

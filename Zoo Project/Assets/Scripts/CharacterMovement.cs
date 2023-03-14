@@ -27,6 +27,8 @@ public class CharacterMovement : MonoBehaviour
     Vector3 moveDirection;
     Rigidbody rb;
 
+    public  GameObject panel;
+
     void Start()
     {
         moveSpeedTemp = moveSpeed;
@@ -35,7 +37,13 @@ public class CharacterMovement : MonoBehaviour
     }
 
     void Update()
-    {
+    {   
+        // Open menu
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            panel.active = panel.activeSelf == true ? false : true;
+        }
+
         // Movement input
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
@@ -50,18 +58,8 @@ public class CharacterMovement : MonoBehaviour
 
         // Control drag and speed
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
-
         SpeedControl();
-
-        if (grounded)
-        {
-            rb.drag = groundDrag;
-        }
-        else
-        {
-            rb.drag = 0;
-        }
-
+        rb.drag = grounded ? groundDrag : 0;
     }
 
     // Don't get stuck on walls

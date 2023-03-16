@@ -27,7 +27,7 @@ public class CharacterMovement : MonoBehaviour
     Vector3 moveDirection;
     Rigidbody rb;
 
-    public  GameObject panel;
+    public GameObject canvas;
 
     void Start()
     {
@@ -41,19 +41,25 @@ public class CharacterMovement : MonoBehaviour
         // Open menu
         if (Input.GetKeyDown(KeyCode.E))
         {
-            panel.active = panel.activeSelf == true ? false : true;
+            canvas.active = canvas.activeSelf == true ? false : true;
+            Actions.OnOpenInventory();
         }
 
-        // Movement input
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
-
-        // Jump input
-        if (Input.GetKey(KeyCode.Space) && readyToJump && grounded)
+        if (canvas.activeSelf == false)
         {
-            readyToJump = false;
-            Jump();
-            Invoke(nameof(ResetJump), jumpCooldown);
+            // Movement input
+            horizontalInput = Input.GetAxisRaw("Horizontal");
+            verticalInput = Input.GetAxisRaw("Vertical");
+
+            // Jump input
+            if (Input.GetKey(KeyCode.Space) && readyToJump && grounded)
+            {
+                readyToJump = false;
+                Jump();
+                Invoke(nameof(ResetJump), jumpCooldown);
+            }
+
+            MovePlayer();
         }
 
         // Control drag and speed
@@ -72,11 +78,6 @@ public class CharacterMovement : MonoBehaviour
         {
             moveSpeed = moveSpeedTemp;
         }
-    }   
-
-    private void FixedUpdate()
-    {
-        MovePlayer();
     }
 
     private void MovePlayer()

@@ -41,7 +41,7 @@ public class CharacterMovement : MonoBehaviour
         // Open menu
         if (Input.GetKeyDown(KeyCode.E))
         {
-            canvas.active = canvas.activeSelf == true ? false : true;
+            canvas.SetActive(canvas.activeSelf == true ? false : true);
             Actions.OnOpenInventory();
         }
 

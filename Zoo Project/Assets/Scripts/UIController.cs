@@ -6,14 +6,9 @@ public class UIController : MonoBehaviour
 {
     public Canvas c;
 
-    // Start is called before the first frame update
-    void Start()
+    public void ExitGame()
     {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        print("Exit Game");
+        Application.Quit();
     }
 }

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public static class Actions
 {
-    public static Action OnOpenInventory;
+    public static Action OnCameraLock;
 }

@@ -42,7 +42,7 @@ public class CharacterMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             canvas.SetActive(canvas.activeSelf == true ? false : true);
-            Actions.OnOpenInventory();
+            //Actions.OnOpenInventory();
         }
 
         if (canvas.activeSelf == false)

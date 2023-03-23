@@ -5,22 +5,31 @@ using UnityEngine;
 public class ViewCameraControl : MonoBehaviour
 {
     private Transform focalPoint;
+    public Camera c;
+    private Transform cam;
 
     // Internal variables
     private float rotationY;
     private float rotationX;
-    private float horizontalMove;
-    private float verticalMove;
+    private float horizontalAddition;
+    private float verticalAddition;
+    private float fovVal =  60;
 
     // External
     public bool lockView = false;
     public float cameraSpeed = 0.5f;
+    public float cameraMoveSpeed = 2f;
+    public int cameraDeadZone = 20;
+    public float zoomSens = 20;
 
     // Start is called before the first frame update
     void Start()
     {
         Actions.OnCameraLock += CameraLock;
         focalPoint = this.transform;
+        cam = c.transform;
+        Cursor.visible= false;
+        Cursor.lockState= CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -28,11 +37,14 @@ public class ViewCameraControl : MonoBehaviour
     {
         CameraSpin();
         CameraTilt();
+        CameraMove();
+        CameraZoom();
     }
 
+    // Horizontal camera spin 
     private void CameraSpin()
     {
-        horizontalMove = Input.GetAxis("Horizontal")  * cameraSpeed;
+        float horizontalMove = Input.GetAxis("Horizontal")  * cameraSpeed;
         if (!lockView)
         {
             rotationY += horizontalMove;
@@ -40,11 +52,13 @@ public class ViewCameraControl : MonoBehaviour
         }
     }
 
+    // Vertical camera tilts
     private void CameraTilt()
     {
-        verticalMove = Input.GetAxis("Vertical") * cameraSpeed * 0.2f;
+        float verticalMove = Input.GetAxis("Vertical") * cameraSpeed * 0.2f;
         if (!lockView)
         {
+            // Check for rotation before applying
             var RotCheckVal = rotationX + verticalMove;
             if (-10 <= RotCheckVal && RotCheckVal <= 10){ rotationX += verticalMove;}
 
@@ -52,8 +66,43 @@ public class ViewCameraControl : MonoBehaviour
         }
     }
 
+    // Move Camera inside the focal point
+    private void CameraMove()
+    {
+        // Get mouse input
+        float mouseX = Input.GetAxis("Mouse X");
+        float mouseY = Input.GetAxis("Mouse Y");
+
+        // Check for deadzones
+        var RotTempValX = horizontalAddition + mouseX * cameraMoveSpeed;
+        var RotTempValY = verticalAddition + mouseY * -cameraMoveSpeed;
+        if (-cameraDeadZone <= RotTempValX && RotTempValX <= cameraDeadZone) { horizontalAddition += mouseX * cameraMoveSpeed; }
+        if (-cameraDeadZone <= RotTempValY && RotTempValY <= cameraDeadZone) { verticalAddition += mouseY * -cameraMoveSpeed; }
+
+        cam.rotation = Quaternion.Euler(rotationX + verticalAddition, rotationY + horizontalAddition, 0);
+    }
+
+    // Zoom in and out
+    private void CameraZoom()
+    {
+        // Get mouse input
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+
+        // Check for max zoom out
+        var TempZoomVal = fovVal + scroll * -zoomSens;
+        if (20 <= TempZoomVal && TempZoomVal <= 60) { fovVal += scroll * -zoomSens; }
+
+        // Change FOV for zoom
+        c.fieldOfView = fovVal;
+    }
+
     private void CameraLock()
     {
         lockView = !lockView;
+    }
+
+    private void ActionModeOn()
+    {
+
     }
 }

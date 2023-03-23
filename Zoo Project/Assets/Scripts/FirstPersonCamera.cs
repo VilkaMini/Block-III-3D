@@ -11,7 +11,7 @@ public class FirstPersonCamera : MonoBehaviour
 
     private void Awake()
     {
-        Actions.OnOpenInventory += changeState;
+        //Actions.OnOpenInventory += changeState;
     }
 
     private void Start()
@@ -54,6 +54,6 @@ public class FirstPersonCamera : MonoBehaviour
 
     private void OnDisable()
     {
-        Actions.OnOpenInventory -= changeState;
+        // Actions.OnOpenInventory -= changeState;
     }
 }

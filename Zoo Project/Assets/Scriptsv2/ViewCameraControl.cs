@@ -25,9 +25,14 @@ public class ViewCameraControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Set camera lock action
         Actions.OnCameraLock += CameraLock;
+
+        // Define gameobjects
         focalPoint = this.transform;
         cam = c.transform;
+
+        // Curso settings
         Cursor.visible= false;
         Cursor.lockState= CursorLockMode.Locked;
     }
@@ -35,6 +40,7 @@ public class ViewCameraControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Run logic
         CameraSpin();
         CameraTilt();
         CameraMove();

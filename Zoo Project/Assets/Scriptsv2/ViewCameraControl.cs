@@ -35,6 +35,9 @@ public class ViewCameraControl : MonoBehaviour
         // Curso settings
         Cursor.visible= false;
         Cursor.lockState= CursorLockMode.Locked;
+
+        // Set initial rotation of camera
+        rotationY = 90;
     }
 
     // Update is called once per frame

@@ -37,7 +37,7 @@ public class ViewCameraControl : MonoBehaviour
         Cursor.lockState= CursorLockMode.Locked;
 
         // Set initial rotation of camera
-        rotationY = 90;
+        rotationY = -120;
     }
 
     // Update is called once per frame
@@ -56,7 +56,7 @@ public class ViewCameraControl : MonoBehaviour
         float horizontalMove = Input.GetAxis("Horizontal")  * cameraSpeed;
         if (!lockView)
         {
-            rotationY += horizontalMove;
+            rotationY += -horizontalMove;
             focalPoint.rotation = Quaternion.Euler(rotationX, rotationY, 0);
         }
     }

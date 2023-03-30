@@ -11,9 +11,10 @@ public class ScanModeController : MonoBehaviour
     public GameObject informationPanel;
     public GameObject selectionMenu;
     public GameObject foodSelectionMenu;
-    public TextMeshProUGUI text;
+    public TextMeshProUGUI headerText;
+    public TextMeshProUGUI mainText;
+    public TextMeshProUGUI extraText;
     public Animator selectionAnimator;
-    public Animator foodAnimator;
     private bool scanMode = false;
     private bool foodPanel = false;
 
@@ -97,19 +98,19 @@ public class ScanModeController : MonoBehaviour
                 switch (part)
                 {
                     case "Body":
-                        OpenInformationPanel("That is body!");
+                        OpenInformationPanel("Body", "Body is big!", "Check under the foot");
                         break;
                     case "Head":
-                        OpenInformationPanel("That is head!");
+                        OpenInformationPanel("Head", "Head is dumb", "head is not round");
                         break;
                     case "Back Legs":
-                        OpenInformationPanel("That is back legs!");
+                        OpenInformationPanel("Back Legs", "He can't run lol", "leg short");
                         break;
                     case "Front Legs":
-                        OpenInformationPanel("That is front legs!");
+                        OpenInformationPanel("Front Legs", "They are in the front", "leg shorter");
                         break;
                     case "Ears":
-                        OpenInformationPanel("That is ears!");
+                        OpenInformationPanel("Ears", "Hearing is bad", "he hear you");
                         break;
                     default:
                         CloseInformationPanel();
@@ -128,10 +129,12 @@ public class ScanModeController : MonoBehaviour
     }
 
     // Information panel controllers ------------------------------
-    private void OpenInformationPanel(string info)
+    private void OpenInformationPanel(string header, string main, string extra)
     {
         CloseInformationPanel();
-        text.text = info;
+        headerText.text = header;
+        mainText.text = main;
+        extraText.text = extra;
         informationPanel.SetActive(true);
     }
 

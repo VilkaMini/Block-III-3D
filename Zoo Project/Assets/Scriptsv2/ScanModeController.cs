@@ -112,6 +112,9 @@ public class ScanModeController : MonoBehaviour
                     case "Ears":
                         OpenInformationPanel("Ears", "Hearing is bad", "he hear you");
                         break;
+                    case "Sticker":
+                        Debug.Log("Sticker clicked");
+                        break;
                     default:
                         CloseInformationPanel();
                         break;

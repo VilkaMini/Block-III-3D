@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fd8c99ce599750d48b3c6666686ad5ae
+guid: edcf21b8314b64747a28915976b57da3
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,18 +7,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 2a7150d26c68ecd44870b52502c8babe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Material.002
-    second: {fileID: 2100000, guid: 21484bdcd70d8f840ba76de0cc76cb24, type: 2}
+    second: {fileID: 2100000, guid: 9f053d067c36bb14380d0691ec5fb84c, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lioness texutre .001
-    second: {fileID: 2100000, guid: 1744703781d64c64a926f807633d05fe, type: 2}
+      name: Safari-GettyImages-143917249
+    second: {fileID: 2100000, guid: 9224a641d1ef9d7478f97c13400bf1c8, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lioness texutre_
-    second: {fileID: 2100000, guid: d24c71c85ecd2f642a350c5608f31552, type: 2}
+      name: leaves v23
+    second: {fileID: 2100000, guid: 9139a7b9829294a47b4b78144342b53b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

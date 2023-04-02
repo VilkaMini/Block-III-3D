@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Hierarchy
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -119,7 +119,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 105
+  controlID: 99
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 106
+  controlID: 29
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 107
+  controlID: 30
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -325,14 +325,14 @@ MonoBehaviour:
   m_LastFolders:
   - Assets/Scriptsv2
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\kslom\Documents\GitHub\Block-III-3D\Zoo Project
+  m_LastProjectPath: E:\Github Repos\Block-III-3D\Zoo Project
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 60}
-    m_SelectedIDs: a6620000
-    m_LastClickedID: 25254
-    m_ExpandedIDs: 00000000806200008462000000ca9a3bffffff7f
+    m_SelectedIDs: 24630000
+    m_LastClickedID: 25380
+    m_ExpandedIDs: 00000000a062000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -360,7 +360,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000806200008262000084620000
+    m_ExpandedIDs: 00000000a0620000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -447,9 +447,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 38870000
-      m_LastClickedID: 0
-      m_ExpandedIDs: de45ffff9050ffff445cffffc262ffff3c63ffff3489ffffaa8fffff4a90ffffc096ffff3697ffff7a97ffff32a2ffff10a3ffff64a3ffff1caeffff8eaeffff04b5ffff72bbffffbebcffff76c7fffff0c7ffffa8d2ffff7ad7ffff3ee2ffffb8e2ffff22e3ffff98e9ffff70eafffffaefffff36fbffffec640000
+      m_SelectedIDs: 68830000
+      m_LastClickedID: 33640
+      m_ExpandedIDs: bee3ffff32f2ffff2afbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -731,9 +731,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -4.5974264, y: -0.11066675, z: -6.5868006}
+    m_Target: {x: 1.5444269, y: 6.313499, z: 0.5561199}
     speed: 2
-    m_Value: {x: -4.5974264, y: -0.11066675, z: -6.5868006}
+    m_Value: {x: 1.5444269, y: 6.313499, z: 0.5561199}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -780,13 +780,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.029307613, y: -0.96259886, z: 0.116075635, w: 0.24326085}
+    m_Target: {x: 0.007298136, y: 0.23040451, z: -0.0017280669, w: 0.97306603}
     speed: 2
-    m_Value: {x: 0.02913194, y: -0.9629122, z: 0.11611338, w: 0.24180399}
+    m_Value: {x: 0.007298136, y: 0.23040451, z: -0.0017280669, w: 0.97306603}
   m_Size:
-    m_Target: 11.022113
+    m_Target: 17.24526
     speed: 2
-    m_Value: 10.547477
+    m_Value: 17.24526
   m_Ortho:
     m_Target: 0
     speed: 2

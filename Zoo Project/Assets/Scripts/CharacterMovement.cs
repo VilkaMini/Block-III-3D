@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
 {
+    // Movement variables
     [Header("Movement")]
     public float moveSpeed;
     private float moveSpeedTemp;
@@ -13,20 +14,21 @@ public class CharacterMovement : MonoBehaviour
     public float jumpCooldown;
     public float airMultiplier;
     bool readyToJump = true;
-
     public Transform orientation;
 
+    // Ground Check variables
     [Header("Ground Check")]
     public float playerHeight;
     public LayerMask whatIsGround;
     bool grounded;
 
-
+    // Input variables
     float horizontalInput;
     float verticalInput;
     Vector3 moveDirection;
     Rigidbody rb;
 
+    // UI
     public GameObject canvas;
 
     void Start()
@@ -41,10 +43,11 @@ public class CharacterMovement : MonoBehaviour
         // Open menu
         if (Input.GetKeyDown(KeyCode.E))
         {
+            // Enable or disable canvas
             canvas.SetActive(canvas.activeSelf == true ? false : true);
-            //Actions.OnOpenInventory();
         }
 
+        // Turn of movement
         if (canvas.activeSelf == false)
         {
             // Movement input
@@ -64,7 +67,6 @@ public class CharacterMovement : MonoBehaviour
 
         // Control drag and speed
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
-        SpeedControl();
         rb.drag = grounded ? groundDrag : 0;
     }
 
@@ -80,6 +82,7 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
+    // Movement of player
     private void MovePlayer()
     {
         // Control movement direction
@@ -98,24 +101,13 @@ public class CharacterMovement : MonoBehaviour
         
     }
 
-    private void SpeedControl()
-    {
-        Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-
-        // limit velocity
-        if (flatVel.magnitude > moveSpeed)
-        {
-            Vector3 limitedVel = flatVel.normalized * moveSpeed;
-            rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
-        }
-
-    }
-
+    // Jumping
     private void Jump()
     {
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
     }
 
+    // Reseting jump after cooldown
     private void ResetJump()
     {
         readyToJump = true;

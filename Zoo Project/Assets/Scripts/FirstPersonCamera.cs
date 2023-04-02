@@ -4,27 +4,24 @@ using UnityEngine;
 
 public class FirstPersonCamera : MonoBehaviour
 {
-
+    // Variables
     public float mouseSensitivity = 2f;
     float cameraVerticalRotation;
     public Transform player;
-
-    private void Awake()
-    {
-        //Actions.OnOpenInventory += changeState;
-    }
 
     private void Start()
     {
         // Lock and Hide the Cursor
         Cursor.visible = false;
-        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void Update()
     {
+        // If cursor is not visible
         if (!Cursor.visible)
         {
+            // Get mouse input
             float inputX = Input.GetAxis("Mouse X") * mouseSensitivity;
             float inputY = Input.GetAxis("Mouse Y") * mouseSensitivity;
 
@@ -35,25 +32,5 @@ public class FirstPersonCamera : MonoBehaviour
 
             player.Rotate(Vector3.up * inputX);
         }
-    }
-
-    void changeState()
-    {
-        print("Called");
-        if (Cursor.visible == true)
-        {
-            Cursor.visible = false;
-            //Cursor.lockState = CursorLockMode.None;
-        }
-        else
-        {
-            Cursor.visible = true;
-            //Cursor.lockState = CursorLockMode.Locked;
-        }
-    }
-
-    private void OnDisable()
-    {
-        // Actions.OnOpenInventory -= changeState;
     }
 }

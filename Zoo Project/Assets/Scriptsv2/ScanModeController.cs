@@ -7,18 +7,26 @@ using UnityEngine;
 
 public class ScanModeController : MonoBehaviour
 {
+    // Camera
     public Camera viewCamera;
+
+    // UI Panels
     public GameObject informationPanel;
     public GameObject selectionMenu;
     public GameObject foodSelectionMenu;
+
+    // UI text in informationPanel
     public TextMeshProUGUI headerText;
     public TextMeshProUGUI mainText;
     public TextMeshProUGUI extraText;
+    
+    // Selection menu animation
     public Animator selectionAnimator;
+
+    // On/off variables
     private bool scanMode = false;
     private bool foodPanel = false;
 
-    // Update is called once per frame
     void Update()
     {   
         // Check for E key for scanmode, control state of modes

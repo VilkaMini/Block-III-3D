@@ -14,15 +14,19 @@ public class Show_sticker_sheet : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.X)) // if user pressess X button
+        // if user pressess X button
+        if (Input.GetKeyDown(KeyCode.X)) 
         {
-            if (sticker_sheet.activeSelf) // check if the sticker sheet is already active
+            // check if the sticker sheet is already active
+            if (sticker_sheet.activeSelf)
             {
-                sticker_sheet.SetActive(false); // turn off the sticker sheet
+                // turn off the sticker sheet
+                sticker_sheet.SetActive(false); 
             }
             else
             {
-                sticker_sheet.SetActive(true); // turn on the sticker sheet
+                // turn on the sticker sheet
+                sticker_sheet.SetActive(true); 
             }
         }
     }

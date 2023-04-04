@@ -14,6 +14,7 @@ public class ScanModeController : MonoBehaviour
     public GameObject informationPanel;
     public GameObject selectionMenu;
     public GameObject foodSelectionMenu;
+    public GameObject stickerInformationalPanel;
 
     // UI text in informationPanel
     public TextMeshProUGUI headerText;
@@ -152,6 +153,13 @@ public class ScanModeController : MonoBehaviour
     private void CloseInformationPanel()
     {
         informationPanel.SetActive(false);
+    }
+    private void StickerInformationalPanel()
+    {
+
+        stickerInformationalPanel.SetActive(true);
+            
+
     }
 
     // Selection panel controllers --------------------------------

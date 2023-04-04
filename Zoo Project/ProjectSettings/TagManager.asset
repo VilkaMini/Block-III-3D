@@ -9,6 +9,7 @@ TagManager:
   - Back Legs
   - Front Legs
   - Ears
+  - Sticker
   layers:
   - Default
   - TransparentFX

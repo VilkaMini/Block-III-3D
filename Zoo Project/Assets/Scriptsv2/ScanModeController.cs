@@ -5,6 +5,8 @@ using System.ComponentModel.Design;
 using TMPro;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using System;
+using System.Linq;
 
 public class ScanModeController : MonoBehaviour
 {
@@ -20,15 +22,11 @@ public class ScanModeController : MonoBehaviour
     public GameObject foodSelectionMenu;
     public GameObject stickerInformationalPanel;
 
-    // Sticker bool
-    private bool rhinoStickerActive = false;
-    private bool lionStickerActive = false;
-    private bool giraffeStickerActive = false;
-
     //Sticker objects
     public GameObject rhinoSticker;
     public GameObject lionSticker;
     public GameObject giraffeSticker;
+    public GameObject stickerObject;
 
     // UI text in informationPanel
     public TextMeshProUGUI headerText;
@@ -44,6 +42,11 @@ public class ScanModeController : MonoBehaviour
 
     void Update()
     {   
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            OpenStickerPanel();
+        }
+
         // Check for E key for scanmode, control state of modes
         if (Input.GetKeyDown(KeyCode.F))
         {
@@ -116,32 +119,32 @@ public class ScanModeController : MonoBehaviour
             // If button clicked
             if (Input.GetMouseButtonDown(0))
             {
+                if (stickerInformationalPanel.activeSelf){CloseStickerPanel();}
                 // Check ray collider tag and display correct text based on tag
-                var part = hit.collider.tag;
-                switch (part)
+                string part = hit.collider.tag;
+                string[] partList = { "Head", "Body", "Ears", "Back Legs", "Front Legs", "Sticker" };
+
+                // Check if list contains the part
+                if (partList.Contains(part))
                 {
-                    case "Body":
-                        OpenInformationPanel("Body", "Body is big!", "Check under the foot");
-                        break;
-                    case "Head":
-                        OpenInformationPanel("Head", "Head is dumb", "head is not round");
-                        break;
-                    case "Back Legs":
-                        OpenInformationPanel("Back Legs", "He can't run lol", "leg short");
-                        break;
-                    case "Front Legs":
-                        OpenInformationPanel("Front Legs", "They are in the front", "leg shorter");
-                        break;
-                    case "Ears":
-                        OpenInformationPanel("Ears", "Hearing is bad", "he hear you");
-                        break;
-                    case "Sticker":
-                        rhinoStickerActive = true;
-                        StickerInformationalPanel();
-                        break;
-                    default:
+                    if (part == "Sticker")
+                    {
+                        if (animalID == "Rhino"){ Storage.rhinoStickerActive = true;}
+                        if (animalID == "Lion"){ Storage.lionStickerActive = true;}
+                        if (animalID == "Giraffe"){ Storage.giraffeStickerActive = true;}
+
+                        Destroy(stickerObject);
                         CloseInformationPanel();
-                        break;
+                        OpenStickerPanel();
+                    }
+                    else
+                    {
+                        OpenInformationPanel(Storage.animalInfo[animalID][part][0], Storage.animalInfo[animalID][part][1], Storage.animalInfo[animalID][part][2]);
+                    }
+                }
+                else
+                {
+                    CloseInformationPanel();
                 }
             }
         }
@@ -150,6 +153,7 @@ public class ScanModeController : MonoBehaviour
             // If click is not on collider close panel
             if (Input.GetMouseButtonDown(0))
             {
+                CloseStickerPanel();
                 CloseInformationPanel();
             }
         }
@@ -171,12 +175,22 @@ public class ScanModeController : MonoBehaviour
     }
 
     // Sticker panel
-    private void StickerInformationalPanel()
+    private void OpenStickerPanel()
     {
-        rhinoSticker.SetActive(rhinoStickerActive);
-        stickerInformationalPanel.SetActive(true);
-            
+        if (stickerInformationalPanel.activeSelf) { CloseStickerPanel(); }
+        else
+        {
+            if (Storage.rhinoStickerActive){ rhinoSticker.SetActive(true);}
+            if (Storage.lionStickerActive){ lionSticker.SetActive(true);}
+            if (Storage.giraffeStickerActive){ giraffeSticker.SetActive(true);}
 
+            stickerInformationalPanel.SetActive(true);
+        }
+    }
+
+    private void CloseStickerPanel()
+    {
+        stickerInformationalPanel.SetActive(false);
     }
 
     // Selection panel controllers --------------------------------

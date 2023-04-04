@@ -1138,7 +1138,8 @@ MonoBehaviour:
   informationPanel: {fileID: 1845778218}
   selectionMenu: {fileID: 2113334970}
   foodSelectionMenu: {fileID: 1082039671}
-  stickerInformationalPanel: {fileID: 0}
+  stickerInformationalPanel: {fileID: 704118601}
+  rhinoSticker: {fileID: 2146534774}
   headerText: {fileID: 1537053317}
   mainText: {fileID: 1759504398}
   extraText: {fileID: 1240922010}
@@ -2465,7 +2466,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2146534775
 RectTransform:
   m_ObjectHideFlags: 0

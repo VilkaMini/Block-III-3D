@@ -1,3 +1,4 @@
+using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
@@ -15,6 +16,14 @@ public class ScanModeController : MonoBehaviour
     public GameObject selectionMenu;
     public GameObject foodSelectionMenu;
     public GameObject stickerInformationalPanel;
+
+    // Sticker bool
+    private bool rhinoStickerActive = false;
+    private bool lionStickerActive = false;
+    private bool giraffeStickerActive = false;
+
+    //Sticker objects
+    public GameObject rhinoSticker;
 
     // UI text in informationPanel
     public TextMeshProUGUI headerText;
@@ -122,9 +131,12 @@ public class ScanModeController : MonoBehaviour
                         OpenInformationPanel("Ears", "Hearing is bad", "he hear you");
                         break;
                     case "Sticker":
+                        rhinoStickerActive = true;
+                        StickerInformationalPanel();
                         Debug.Log("Sticker clicked");
                         break;
                     default:
+                  
                         CloseInformationPanel();
                         break;
                 }
@@ -156,7 +168,7 @@ public class ScanModeController : MonoBehaviour
     }
     private void StickerInformationalPanel()
     {
-
+        rhinoSticker.SetActive(rhinoStickerActive);
         stickerInformationalPanel.SetActive(true);
             
 

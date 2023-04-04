@@ -1231,12 +1231,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea317ef5763554a408e1208f1b68ae8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animalID: 
   viewCamera: {fileID: 139727868}
   informationPanel: {fileID: 1845778218}
   selectionMenu: {fileID: 2113334970}
   foodSelectionMenu: {fileID: 1082039671}
   stickerInformationalPanel: {fileID: 0}
   rhinoSticker: {fileID: 0}
+  lionSticker: {fileID: 0}
+  giraffeSticker: {fileID: 0}
   headerText: {fileID: 1537053317}
   mainText: {fileID: 1759504398}
   extraText: {fileID: 1240922010}
@@ -2466,7 +2469,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1845778219
 RectTransform:
   m_ObjectHideFlags: 0

@@ -8,6 +8,9 @@ using UnityEngine;
 
 public class ScanModeController : MonoBehaviour
 {
+    // Animal
+    public string animalID = "";
+
     // Camera
     public Camera viewCamera;
 
@@ -24,6 +27,8 @@ public class ScanModeController : MonoBehaviour
 
     //Sticker objects
     public GameObject rhinoSticker;
+    public GameObject lionSticker;
+    public GameObject giraffeSticker;
 
     // UI text in informationPanel
     public TextMeshProUGUI headerText;
@@ -133,10 +138,8 @@ public class ScanModeController : MonoBehaviour
                     case "Sticker":
                         rhinoStickerActive = true;
                         StickerInformationalPanel();
-                        Debug.Log("Sticker clicked");
                         break;
                     default:
-                  
                         CloseInformationPanel();
                         break;
                 }
@@ -166,6 +169,8 @@ public class ScanModeController : MonoBehaviour
     {
         informationPanel.SetActive(false);
     }
+
+    // Sticker panel
     private void StickerInformationalPanel()
     {
         rhinoSticker.SetActive(rhinoStickerActive);

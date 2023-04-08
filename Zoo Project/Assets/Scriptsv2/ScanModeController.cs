@@ -84,19 +84,36 @@ public class ScanModeController : MonoBehaviour
             {
                 if (Input.GetKeyDown(KeyCode.Alpha1))
                 {
-                    Debug.Log("Feed 1");
+                    // Meat
+                    if (animalID == "Rhino")
+                    {
+                        OpenInformationPanel("Food Selection", "Hey! I can't eat meat, I am strictly vegan and am planning to stay that way!", "I see you have something else in your pocket, may I try that?");
+                    }
                 }
                 if (Input.GetKeyDown(KeyCode.Alpha2))
                 {
-                    Debug.Log("Feed 2");
+                    // Twig
+                    if (animalID == "Rhino")
+                    {
+                        OpenInformationPanel("Food Selection", "Aww I love this, that is my second-favorite food, can I get more?!", "I see more in your pockets.");
+                    }
                 }
                 if (Input.GetKeyDown(KeyCode.Alpha3))
                 {
-                    Debug.Log("Feed 3");
+                    // Leaves
+                    if (animalID == "Rhino")
+                    {
+                        OpenInformationPanel("Food Selection", "Aww I love this, that is my favorite food, can I get more?!", "I see more in your pockets.");
+                    }
                 }
                 if (Input.GetKeyDown(KeyCode.Alpha4))
                 {
-                    Debug.Log("Feed 4");
+                    // Chocolate
+                    if (animalID == "Rhino")
+                    {
+                        OpenInformationPanel("Food Selection", "Hey! I can't eat chocolate, my tummy will bubble if I eat that, although it smells really nice.", "I see you have something else in your pocket, may I try that?");
+
+                    }
                 }
             }
 

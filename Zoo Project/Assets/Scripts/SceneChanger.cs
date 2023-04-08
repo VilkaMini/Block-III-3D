@@ -16,6 +16,6 @@ public class SceneChanger : MonoBehaviour
 
     public void ChangeToGame()
     {
-        SceneManager.LoadScene("ZooRoom");
+        SceneManager.LoadScene("ZooRoomRhino");
     }
 }

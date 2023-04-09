@@ -2553,9 +2553,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1696663562}
   - component: {fileID: 1696663561}
+  - component: {fileID: 1696663563}
   m_Layer: 0
-  m_Name: spoopy cut
-  m_TagString: Untagged
+  m_Name: Spoopy Easter Cat
+  m_TagString: Egg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2627,6 +2628,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: -25.298, z: 0}
+--- !u!65 &1696663563
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696663560}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 15.119999, y: 20.16, z: 4.632058}
+  m_Center: {x: -1.1646677e-10, y: 0, z: 0.0050050137}
 --- !u!1 &1724760161 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7719533485721483764, guid: 130eb37d702744a4695a08f311d06921, type: 3}

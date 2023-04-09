@@ -141,12 +141,16 @@ public class ScanModeController : MonoBehaviour
                 if (stickerInformationalPanel.activeSelf){CloseStickerPanel();}
                 // Check ray collider tag and display correct text based on tag
                 string part = hit.collider.tag;
-                string[] partList = { "Head", "Body", "Ears", "Back Legs", "Front Legs", "Sticker" };
+                string[] partList = { "Head", "Body", "Ears", "Back Legs", "Front Legs", "Sticker", "Egg"};
 
                 // Check if list contains the part
                 if (partList.Contains(part))
                 {
-                    if (part == "Sticker")
+                    if (part == "Egg")
+                    {
+                        OpenInformationPanel("Spoopy The Queen!", "You found Spoopy the Queen easter cat!", "You may proceed now...");
+                    }
+                    else if(part == "Sticker")
                     {
                         if (animalID == "Rhino"){ Storage.rhinoStickerActive = true;}
                         if (animalID == "Lion"){ Storage.lionStickerActive = true;}

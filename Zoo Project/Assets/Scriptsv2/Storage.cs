@@ -20,4 +20,9 @@ public static class Storage
                                                     } 
         },
     };
+
+    public static Dictionary<string, List<string>> animalPartsScanned = new Dictionary<string, List<string>>()
+    {
+        {"Rhino", new List<string>() { } },
+    };
 }

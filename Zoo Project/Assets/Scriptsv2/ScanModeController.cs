@@ -12,6 +12,7 @@ public class ScanModeController : MonoBehaviour
 {
     // Animal
     public string animalID = "";
+    private int partsScannedCount = 0;
 
     // Camera
     public Camera viewCamera;
@@ -32,6 +33,7 @@ public class ScanModeController : MonoBehaviour
     public TextMeshProUGUI headerText;
     public TextMeshProUGUI mainText;
     public TextMeshProUGUI extraText;
+    public TextMeshProUGUI partsScanned;
     
     // Selection menu animation
     public Animator selectionAnimator;
@@ -156,6 +158,7 @@ public class ScanModeController : MonoBehaviour
                     }
                     else
                     {
+                        UpdateStats(part);
                         OpenInformationPanel(Storage.animalInfo[animalID][part][0], Storage.animalInfo[animalID][part][1], Storage.animalInfo[animalID][part][2]);
                     }
                 }
@@ -238,5 +241,18 @@ public class ScanModeController : MonoBehaviour
     private void OpenFoodPanel()
     {
         foodSelectionMenu.SetActive(true);
+    }
+
+    // Update stats
+
+    private void UpdateStats(string part)
+    {
+        if (!Storage.animalPartsScanned[animalID].Contains(part))
+        {
+            Storage.animalPartsScanned[animalID].Add(part);
+            partsScannedCount++;
+            partsScanned.text = String.Format("Scanned: {0} / 5", partsScannedCount);
+;
+        }
     }
 }

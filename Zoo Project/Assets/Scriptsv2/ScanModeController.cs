@@ -37,7 +37,7 @@ public class ScanModeController : MonoBehaviour
     {   
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            OpenStickerPanel();
+            ControlStickerPanel();
         }
 
         CheckGaze();
@@ -104,8 +104,8 @@ public class ScanModeController : MonoBehaviour
         {
             // If button clicked
             if (Input.GetMouseButtonDown(0))
-            {
-                if (stickerInformationalPanel.activeSelf){CloseStickerPanel();}
+            {   
+                if (stickerInformationalPanel.activeSelf){ControlStickerPanel();}
                 // Check ray collider tag and display correct text based on tag
                 string part = hit.collider.tag;
                 string[] partList = { "Head", "Body", "Ears", "Back Legs", "Front Legs", "Sticker", "Egg"};
@@ -125,7 +125,7 @@ public class ScanModeController : MonoBehaviour
 
                         Destroy(stickerObject);
                         CloseInformationPanel();
-                        OpenStickerPanel();
+                        ControlStickerPanel();
                     }
                     else
                     {
@@ -144,7 +144,7 @@ public class ScanModeController : MonoBehaviour
             // If click is not on collider close panel
             if (Input.GetMouseButtonDown(0))
             {
-                CloseStickerPanel();
+                ControlStickerPanel();
                 CloseInformationPanel();
             }
         }
@@ -166,9 +166,12 @@ public class ScanModeController : MonoBehaviour
     }
 
     // Sticker panel
-    private void OpenStickerPanel()
+    private void ControlStickerPanel()
     {
-        if (stickerInformationalPanel.activeSelf) { CloseStickerPanel(); }
+        if (stickerInformationalPanel.activeSelf) 
+        {
+            stickerInformationalPanel.SetActive(false);
+        }
         else
         {
             if (Storage.rhinoStickerActive){ rhinoSticker.SetActive(true);}
@@ -177,11 +180,6 @@ public class ScanModeController : MonoBehaviour
 
             stickerInformationalPanel.SetActive(true);
         }
-    }
-
-    private void CloseStickerPanel()
-    {
-        stickerInformationalPanel.SetActive(false);
     }
 
     // Food panel controller ---------------------------------------

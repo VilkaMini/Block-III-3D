@@ -34,7 +34,6 @@ public class ScanModeController : MonoBehaviour
     public Animator selectionAnimator;
 
     // On/off variables
-    private bool scanMode = false;
     private bool foodPanel = false;
 
     void Update()
@@ -44,81 +43,64 @@ public class ScanModeController : MonoBehaviour
             OpenStickerPanel();
         }
 
-        // Check for E key for scanmode, control state of modes
-        if (Input.GetKeyDown(KeyCode.F))
+        CheckGaze();
+            
+        // If Q is pressed open food selection menu 
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            scanMode = !scanMode;
-            if (scanMode)
+            // If food menu active, close it, else open it
+            foodPanel = !foodPanel;
+            if (foodPanel)
             {
-                OpenSelectionPanel();
+                OpenFoodPanel();
             }
             else
             {
-                CloseScanMode();
+                CloseFoodPanel();
             }
         }
-        // If scanmode is active, check for gaze (aka. check if clicked on part to display info) and control interaction menu
-        if (scanMode)
+        // If food panel is open choose food
+        if (foodPanel)
         {
-            CheckGaze();
-            
-            // If Q is pressed open food selection menu 
-            if (Input.GetKeyDown(KeyCode.Q))
+            if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                // If food menu active, close it, else open it
-                foodPanel = !foodPanel;
-                if (foodPanel)
+                // Meat
+                if (animalID == "Rhino")
                 {
-                    OpenFoodPanel();
-                }
-                else
-                {
-                    CloseFoodPanel();
+                    OpenInformationPanel("Food Selection", "Hey! I can't eat meat, I am strictly vegan and am planning to stay that way!", "I see you have something else in your pocket, may I try that?");
                 }
             }
-            // If food panel is open choose food
-            if (foodPanel)
+            if (Input.GetKeyDown(KeyCode.Alpha2))
             {
-                if (Input.GetKeyDown(KeyCode.Alpha1))
+                // Twig
+                if (animalID == "Rhino")
                 {
-                    // Meat
-                    if (animalID == "Rhino")
-                    {
-                        OpenInformationPanel("Food Selection", "Hey! I can't eat meat, I am strictly vegan and am planning to stay that way!", "I see you have something else in your pocket, may I try that?");
-                    }
+                    OpenInformationPanel("Food Selection", "Aww I love this, that is my second-favorite food, can I get more?!", "I see more in your pockets.");
                 }
-                if (Input.GetKeyDown(KeyCode.Alpha2))
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                // Leaves
+                if (animalID == "Rhino")
                 {
-                    // Twig
-                    if (animalID == "Rhino")
-                    {
-                        OpenInformationPanel("Food Selection", "Aww I love this, that is my second-favorite food, can I get more?!", "I see more in your pockets.");
-                    }
+                    OpenInformationPanel("Food Selection", "Aww I love this, that is my favorite food, can I get more?!", "I see more in your pockets.");
                 }
-                if (Input.GetKeyDown(KeyCode.Alpha3))
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                // Chocolate
+                if (animalID == "Rhino")
                 {
-                    // Leaves
-                    if (animalID == "Rhino")
-                    {
-                        OpenInformationPanel("Food Selection", "Aww I love this, that is my favorite food, can I get more?!", "I see more in your pockets.");
-                    }
-                }
-                if (Input.GetKeyDown(KeyCode.Alpha4))
-                {
-                    // Chocolate
-                    if (animalID == "Rhino")
-                    {
-                        OpenInformationPanel("Food Selection", "Hey! I can't eat chocolate, my tummy will bubble if I eat that, although it smells really nice.", "I see you have something else in your pocket, may I try that?");
+                    OpenInformationPanel("Food Selection", "Hey! I can't eat chocolate, my tummy will bubble if I eat that, although it smells really nice.", "I see you have something else in your pocket, may I try that?");
 
-                    }
                 }
             }
+        }
 
-            // If E is pressed, brush animal
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                Debug.Log("Brushing animal");
-            }
+        // If E is pressed, brush animal
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Debug.Log("Brushing animal");
         }
     }
 
@@ -210,24 +192,6 @@ public class ScanModeController : MonoBehaviour
     private void CloseStickerPanel()
     {
         stickerInformationalPanel.SetActive(false);
-    }
-
-    // Selection panel controllers --------------------------------
-    private void OpenSelectionPanel()
-    {
-        selectionAnimator.SetBool("open", true);
-    }
-
-    private void CloseSelectionPanel()
-    {
-        selectionAnimator.SetBool("open", false);
-    }
-
-    private void CloseScanMode()
-    {
-        CloseInformationPanel();
-        CloseSelectionPanel();
-        CloseFoodPanel();
     }
 
     // Food panel controller ---------------------------------------

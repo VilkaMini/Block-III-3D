@@ -29,9 +29,6 @@ public class ScanModeController : MonoBehaviour
     public TextMeshProUGUI mainText;
     public TextMeshProUGUI extraText;
     public TextMeshProUGUI partsScanned;
-    
-    // Selection menu animation
-    public Animator selectionAnimator;
 
     // On/off variables
     private bool foodPanel = false;

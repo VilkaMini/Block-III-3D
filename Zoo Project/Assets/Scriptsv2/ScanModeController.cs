@@ -50,14 +50,7 @@ public class ScanModeController : MonoBehaviour
         {
             // If food menu active, close it, else open it
             foodPanel = !foodPanel;
-            if (foodPanel)
-            {
-                OpenFoodPanel();
-            }
-            else
-            {
-                CloseFoodPanel();
-            }
+            ControlFoodPanel();
         }
         // If food panel is open choose food
         if (foodPanel)
@@ -195,15 +188,9 @@ public class ScanModeController : MonoBehaviour
     }
 
     // Food panel controller ---------------------------------------
-
-    private void CloseFoodPanel()
+    public void ControlFoodPanel()
     {
-        foodSelectionMenu.SetActive(false);
-    }
-
-    private void OpenFoodPanel()
-    {
-        foodSelectionMenu.SetActive(true);
+        foodSelectionMenu.SetActive(foodPanel);
     }
 
     // Update stats

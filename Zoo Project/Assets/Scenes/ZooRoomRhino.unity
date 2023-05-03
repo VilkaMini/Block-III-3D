@@ -1381,6 +1381,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animalID: Rhino
+  animalAnimator: {fileID: 1274807174}
   viewCamera: {fileID: 139727868}
   informationPanel: {fileID: 1845778218}
   selectionMenu: {fileID: 2113334970}
@@ -2510,6 +2511,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Head
       objectReference: {fileID: 0}
+    - target: {fileID: 4167280743394806330, guid: f70e8ce2be333e640917a2aa13e70d42, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -0.09432098
+      objectReference: {fileID: 0}
     - target: {fileID: 6371836146868173509, guid: f70e8ce2be333e640917a2aa13e70d42, type: 3}
       propertyPath: m_TagString
       value: Ears
@@ -2610,8 +2615,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 17.23212, y: 14.747269, z: 38.243656}
-  m_Center: {x: 0.7366361, y: 0.60691327, z: -19.335577}
+  m_Size: {x: 16.887955, y: 14.747269, z: 38.243656}
+  m_Center: {x: 0.5645655, y: 0.60691327, z: -19.335577}
 --- !u!1 &1597228027
 GameObject:
   m_ObjectHideFlags: 0

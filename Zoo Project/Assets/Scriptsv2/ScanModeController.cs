@@ -8,6 +8,7 @@ public class ScanModeController : MonoBehaviour
     // Animal
     public string animalID = "";
     private int partsScannedCount = 0;
+    public Animator animalAnimator;
 
     // Camera
     public Camera viewCamera;
@@ -48,6 +49,7 @@ public class ScanModeController : MonoBehaviour
             // If food menu active, close it, else open it
             foodPanel = !foodPanel;
             ControlFoodPanel();
+            CloseInformationPanel();
         }
         // If food panel is open choose food
         if (foodPanel)
@@ -58,6 +60,7 @@ public class ScanModeController : MonoBehaviour
                 if (animalID == "Rhino")
                 {
                     OpenInformationPanel("Food Selection", "Hey! I can't eat meat, I am strictly vegan and am planning to stay that way!", "I see you have something else in your pocket, may I try that?");
+                    animalAnimator.Play("Angry", 0, 0.0f);
                 }
             }
             if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -66,6 +69,7 @@ public class ScanModeController : MonoBehaviour
                 if (animalID == "Rhino")
                 {
                     OpenInformationPanel("Food Selection", "Aww I love this, that is my second-favorite food, can I get more?!", "I see more in your pockets.");
+                    animalAnimator.Play("Happy", 0, 0.0f);
                 }
             }
             if (Input.GetKeyDown(KeyCode.Alpha3))
@@ -74,6 +78,7 @@ public class ScanModeController : MonoBehaviour
                 if (animalID == "Rhino")
                 {
                     OpenInformationPanel("Food Selection", "Aww I love this, that is my favorite food, can I get more?!", "I see more in your pockets.");
+                    animalAnimator.Play("Happy", 0, 0.0f);
                 }
             }
             if (Input.GetKeyDown(KeyCode.Alpha4))
@@ -82,6 +87,7 @@ public class ScanModeController : MonoBehaviour
                 if (animalID == "Rhino")
                 {
                     OpenInformationPanel("Food Selection", "Hey! I can't eat chocolate, my tummy will bubble if I eat that, although it smells really nice.", "I see you have something else in your pocket, may I try that?");
+                    animalAnimator.Play("Angry", 0, 0.0f);
 
                 }
             }
@@ -90,6 +96,7 @@ public class ScanModeController : MonoBehaviour
         // If E is pressed, brush animal
         if (Input.GetKeyDown(KeyCode.E))
         {
+            animalAnimator.Play("Happy", 0, 0.0f);
             Debug.Log("Brushing animal");
         }
     }
@@ -144,7 +151,10 @@ public class ScanModeController : MonoBehaviour
             // If click is not on collider close panel
             if (Input.GetMouseButtonDown(0))
             {
-                ControlStickerPanel();
+                if (stickerInformationalPanel.activeSelf)
+                {
+                    ControlStickerPanel();
+                }
                 CloseInformationPanel();
             }
         }

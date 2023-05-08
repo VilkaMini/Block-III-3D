@@ -13,6 +13,9 @@ public class ScanModeController : MonoBehaviour
     // Camera
     public Camera viewCamera;
 
+    // Watergun
+    public ParticleSystem watergun;
+
     // UI Panels
     public GameObject informationPanel;
     public GameObject selectionMenu;
@@ -34,8 +37,18 @@ public class ScanModeController : MonoBehaviour
     // On/off variables
     private bool foodPanel = false;
 
+    private void Awake()
+    {
+        watergun.Stop();
+    }
+
     void Update()
-    {   
+    {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            ControlWaterGun();
+        }
+
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             ControlStickerPanel();
@@ -159,6 +172,15 @@ public class ScanModeController : MonoBehaviour
             }
         }
     }
+
+    // Watergun
+    private void ControlWaterGun()
+    {
+        // Changes state of partical system
+        if (watergun.isPlaying){watergun.Stop();}
+        else{watergun.Play();}
+    }
+
 
     // Information panel controllers ------------------------------
     private void OpenInformationPanel(string header, string main, string extra)

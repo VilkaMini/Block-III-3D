@@ -44,73 +44,9 @@ public class ScanModeController : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.touchCount > 0) 
         {
-            ControlWaterGun();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            ControlStickerPanel();
-        }
-
-        CheckGaze();
-            
-        // If Q is pressed open food selection menu 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            // If food menu active, close it, else open it
-            foodPanel = !foodPanel;
-            ControlFoodPanel();
-            CloseInformationPanel();
-        }
-        // If food panel is open choose food
-        if (foodPanel)
-        {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                // Meat
-                if (animalID == "Rhino")
-                {
-                    OpenInformationPanel("Food Selection", "Hey! I can't eat meat, I am strictly vegan and am planning to stay that way!", "I see you have something else in your pocket, may I try that?");
-                    animalAnimator.Play("Angry", 0, 0.0f);
-                }
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha2))
-            {
-                // Twig
-                if (animalID == "Rhino")
-                {
-                    OpenInformationPanel("Food Selection", "Aww I love this, that is my second-favorite food, can I get more?!", "I see more in your pockets.");
-                    animalAnimator.Play("Happy", 0, 0.0f);
-                }
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha3))
-            {
-                // Leaves
-                if (animalID == "Rhino")
-                {
-                    OpenInformationPanel("Food Selection", "Aww I love this, that is my favorite food, can I get more?!", "I see more in your pockets.");
-                    animalAnimator.Play("Happy", 0, 0.0f);
-                }
-            }
-            if (Input.GetKeyDown(KeyCode.Alpha4))
-            {
-                // Chocolate
-                if (animalID == "Rhino")
-                {
-                    OpenInformationPanel("Food Selection", "Hey! I can't eat chocolate, my tummy will bubble if I eat that, although it smells really nice.", "I see you have something else in your pocket, may I try that?");
-                    animalAnimator.Play("Angry", 0, 0.0f);
-
-                }
-            }
-        }
-
-        // If E is pressed, brush animal
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            animalAnimator.Play("Happy", 0, 0.0f);
-            Debug.Log("Brushing animal");
+            CheckGaze();
         }
     }
 
@@ -122,59 +58,43 @@ public class ScanModeController : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(gazeRay, out hit, Mathf.Infinity))
         {
-            // If button clicked
-            if (Input.GetMouseButtonDown(0))
-            {   
-                if (stickerInformationalPanel.activeSelf){ControlStickerPanel();}
-                // Check ray collider tag and display correct text based on tag
-                string part = hit.collider.tag;
-                string[] partList = { "Head", "Body", "Ears", "Back Legs", "Front Legs", "Sticker", "Egg"};
+            // Check ray collider tag and display correct text based on tag
+            string part = hit.collider.tag;
+            string[] partList = { "Head", "Body", "Ears", "Back Legs", "Front Legs", "Sticker", "Egg"};
+            print(part);
 
-                // Check if list contains the part
-                if (partList.Contains(part))
+            // Check if list contains the part
+            if (partList.Contains(part))
+            {
+                if (part == "Egg")
                 {
-                    if (part == "Egg")
-                    {
-                        OpenInformationPanel("Spoopy The Queen!", "You found Spoopy the Queen easter cat!", "You may proceed now...");
-                    }
-                    else if(part == "Sticker")
-                    {
-                        if (animalID == "Rhino"){ Storage.rhinoStickerActive = true;}
-                        if (animalID == "Lion"){ Storage.lionStickerActive = true;}
-                        if (animalID == "Giraffe"){ Storage.giraffeStickerActive = true;}
+                    OpenInformationPanel("Spoopy The Queen!", "You found Spoopy the Queen easter cat!", "You may proceed now...");
+                }
+                else if(part == "Sticker")
+                {
+                    if (animalID == "Rhino"){ Storage.rhinoStickerActive = true;}
+                    if (animalID == "Lion"){ Storage.lionStickerActive = true;}
+                    if (animalID == "Giraffe"){ Storage.giraffeStickerActive = true;}
 
-                        Destroy(stickerObject);
-                        CloseInformationPanel();
-                        ControlStickerPanel();
-                    }
-                    else
-                    {
-                        UpdateStats(part);
-                        OpenInformationPanel(Storage.animalInfo[animalID][part][0], Storage.animalInfo[animalID][part][1], Storage.animalInfo[animalID][part][2]);
-                    }
+                    Destroy(stickerObject);
+                    CloseInformationPanel();
+                    ControlStickerPanel();
                 }
                 else
                 {
-                    CloseInformationPanel();
+                    UpdateStats(part);
+                    OpenInformationPanel(Storage.animalInfo[animalID][part][0], Storage.animalInfo[animalID][part][1], Storage.animalInfo[animalID][part][2]);
                 }
             }
-        }
-        else
-        {
-            // If click is not on collider close panel
-            if (Input.GetMouseButtonDown(0))
+            else
             {
-                if (stickerInformationalPanel.activeSelf)
-                {
-                    ControlStickerPanel();
-                }
                 CloseInformationPanel();
             }
         }
     }
 
     // Watergun
-    private void ControlWaterGun()
+    public void ControlWaterGun()
     {
         // Changes state of partical system
         if (watergun.isPlaying){watergun.Stop();}
@@ -198,7 +118,7 @@ public class ScanModeController : MonoBehaviour
     }
 
     // Sticker panel
-    private void ControlStickerPanel()
+    public void ControlStickerPanel()
     {
         if (stickerInformationalPanel.activeSelf) 
         {
@@ -214,11 +134,66 @@ public class ScanModeController : MonoBehaviour
         }
     }
 
-    // Food panel controller ---------------------------------------
+    // Food controller ---------------------------------------
     public void ControlFoodPanel()
     {
+        print("Food Control");
+        foodPanel = !foodPanel;
         foodSelectionMenu.SetActive(foodPanel);
     }
+
+    // Meat
+    public void FoodChoiceOne()
+    {
+        print("Food choice 1");
+        if (animalID == "Rhino")
+        {
+            OpenInformationPanel("Food Selection", "Hey! I can't eat meat, I am strictly vegan and am planning to stay that way!", "I see you have something else in your pocket, may I try that?");
+            animalAnimator.Play("Angry", 0, 0.0f);
+        }
+    }
+
+    // Twig
+    public void FoodChoiceTwo()
+    {
+        print("Food choice 2");
+        if (animalID == "Rhino")
+        {
+            OpenInformationPanel("Food Selection", "Aww I love this, that is my second-favorite food, can I get more?!", "I see more in your pockets.");
+            animalAnimator.Play("Happy", 0, 0.0f);
+        }
+    }
+
+    // Leaves
+    public void FoodChoiceThree()
+    {
+        print("Food choice 3");
+        if (animalID == "Rhino")
+        {
+            OpenInformationPanel("Food Selection", "Aww I love this, that is my favorite food, can I get more?!", "I see more in your pockets.");
+            animalAnimator.Play("Happy", 0, 0.0f);
+        }
+    }
+
+    // Chocolate
+    public void FoodChoiceFour()
+    {
+        print("Food choice 4");
+        if (animalID == "Rhino")
+        {
+            OpenInformationPanel("Food Selection", "Hey! I can't eat chocolate, my tummy will bubble if I eat that, although it smells really nice.", "I see you have something else in your pocket, may I try that?");
+            animalAnimator.Play("Angry", 0, 0.0f);
+
+        }
+    }
+
+    // Brush control
+    public void ControlBrush()
+    {
+            animalAnimator.Play("Happy", 0, 0.0f);
+            Debug.Log("Brushing animal");
+    }
+
 
     // Update stats
 

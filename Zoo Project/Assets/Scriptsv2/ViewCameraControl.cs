@@ -15,6 +15,12 @@ public class ViewCameraControl : MonoBehaviour
     private float verticalAddition;
     private float fovVal =  60;
 
+    // Moving bools
+    public bool movingLeft;
+    public bool movingRight;
+    public bool movingUp;
+    public bool movingDownt;
+
     // External
     public bool lockView = false;
     public float cameraSpeed = 0.5f;
@@ -25,9 +31,6 @@ public class ViewCameraControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Set camera lock action
-        Actions.OnCameraLock += CameraLock;
-
         // Define gameobjects
         focalPoint = this.transform;
         cam = c.transform;
@@ -53,7 +56,7 @@ public class ViewCameraControl : MonoBehaviour
     // Horizontal camera spin 
     private void CameraSpin()
     {
-        float horizontalMove = Input.GetAxis("Horizontal")  * cameraSpeed;
+        float horizontalMove = Input.GetAxis("Horizontal") * cameraSpeed;
         if (!lockView)
         {
             rotationY += -horizontalMove;
@@ -103,10 +106,5 @@ public class ViewCameraControl : MonoBehaviour
 
         // Change FOV for zoom
         c.fieldOfView = fovVal;
-    }
-
-    private void CameraLock()
-    {
-        lockView = !lockView;
     }
 }

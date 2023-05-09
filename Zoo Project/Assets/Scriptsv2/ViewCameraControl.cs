@@ -7,6 +7,8 @@ public class ViewCameraControl : MonoBehaviour
     private Transform focalPoint;
     public Camera c;
     private Transform cam;
+    public FixedJoystick joystick;
+    public FloatingJoystick viewJoystick;
 
     // Internal variables
     private float rotationY;
@@ -47,16 +49,16 @@ public class ViewCameraControl : MonoBehaviour
     void Update()
     {
         // Run logic
-        CameraSpin();
-        CameraTilt();
+        CameraSpin(joystick.Horizontal);
+        CameraTilt(joystick.Vertical);
         CameraMove();
         CameraZoom();
     }
 
     // Horizontal camera spin 
-    private void CameraSpin()
+    private void CameraSpin(float joystickInput)
     {
-        float horizontalMove = Input.GetAxis("Horizontal") * cameraSpeed;
+        float horizontalMove = joystickInput * cameraSpeed;
         if (!lockView)
         {
             rotationY += -horizontalMove;
@@ -65,9 +67,9 @@ public class ViewCameraControl : MonoBehaviour
     }
 
     // Vertical camera tilts
-    private void CameraTilt()
+    private void CameraTilt(float joystickInput)
     {
-        float verticalMove = Input.GetAxis("Vertical") * cameraSpeed * 0.2f;
+        float verticalMove = joystickInput * cameraSpeed * 0.2f;
         if (!lockView)
         {
             // Check for rotation before applying
@@ -81,15 +83,11 @@ public class ViewCameraControl : MonoBehaviour
     // Move Camera inside the focal point
     private void CameraMove()
     {
-        // Get mouse input
-        float mouseX = Input.GetAxis("Mouse X");
-        float mouseY = Input.GetAxis("Mouse Y");
-
         // Check for deadzones
-        var RotTempValX = horizontalAddition + mouseX * cameraMoveSpeed;
-        var RotTempValY = verticalAddition + mouseY * -cameraMoveSpeed;
-        if (-cameraDeadZone <= RotTempValX && RotTempValX <= cameraDeadZone) { horizontalAddition += mouseX * cameraMoveSpeed; }
-        if (-cameraDeadZone <= RotTempValY && RotTempValY <= cameraDeadZone) { verticalAddition += mouseY * -cameraMoveSpeed; }
+        var RotTempValX = horizontalAddition + viewJoystick.Horizontal * cameraMoveSpeed;
+        var RotTempValY = verticalAddition + viewJoystick.Vertical * -cameraMoveSpeed;
+        if (-cameraDeadZone <= RotTempValX && RotTempValX <= cameraDeadZone) { horizontalAddition += viewJoystick.Horizontal * cameraMoveSpeed; }
+        if (-cameraDeadZone <= RotTempValY && RotTempValY <= cameraDeadZone) { verticalAddition += viewJoystick.Vertical * -cameraMoveSpeed; }
 
         cam.rotation = Quaternion.Euler(rotationX + verticalAddition, rotationY + horizontalAddition, 0);
     }

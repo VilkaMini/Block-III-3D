@@ -18,9 +18,7 @@ public class ScanModeController : MonoBehaviour
 
     // UI Panels
     public GameObject informationPanel;
-    public GameObject selectionMenu;
     public GameObject foodSelectionMenu;
-    public GameObject stickerInformationalPanel;
 
     //Sticker objects
     public GameObject rhinoSticker;

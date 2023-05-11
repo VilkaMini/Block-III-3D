@@ -34,9 +34,6 @@ public class ScanModeController : MonoBehaviour
     public TextMeshProUGUI extraText;
     public TextMeshProUGUI partsScanned;
 
-    // On/off variables
-    private bool foodPanel = false;
-
     private void Awake()
     {
         watergun.Stop();
@@ -72,13 +69,11 @@ public class ScanModeController : MonoBehaviour
                 }
                 else if(part == "Sticker")
                 {
-                    if (animalID == "Rhino"){ Storage.rhinoStickerActive = true;}
-                    if (animalID == "Lion"){ Storage.lionStickerActive = true;}
-                    if (animalID == "Giraffe"){ Storage.giraffeStickerActive = true;}
+                    if (animalID == "Rhino"){ rhinoSticker.SetActive(true);}
 
                     Destroy(stickerObject);
                     CloseInformationPanel();
-                    ControlStickerPanel();
+                    //ControlStickerPanel();
                 }
                 else
                 {
@@ -117,29 +112,11 @@ public class ScanModeController : MonoBehaviour
         informationPanel.SetActive(false);
     }
 
-    // Sticker panel
-    public void ControlStickerPanel()
-    {
-        if (stickerInformationalPanel.activeSelf) 
-        {
-            stickerInformationalPanel.SetActive(false);
-        }
-        else
-        {
-            if (Storage.rhinoStickerActive){ rhinoSticker.SetActive(true);}
-            if (Storage.lionStickerActive){ lionSticker.SetActive(true);}
-            if (Storage.giraffeStickerActive){ giraffeSticker.SetActive(true);}
-
-            stickerInformationalPanel.SetActive(true);
-        }
-    }
-
     // Food controller ---------------------------------------
     public void ControlFoodPanel()
     {
         print("Food Control");
-        foodPanel = !foodPanel;
-        foodSelectionMenu.SetActive(foodPanel);
+        foodSelectionMenu.SetActive(!foodSelectionMenu.activeSelf);
     }
 
     // Meat

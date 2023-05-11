@@ -4,11 +4,6 @@ using UnityEngine;
 
 public static class Storage
 {
-    // Sticker bool
-    public static bool rhinoStickerActive = false;
-    public static bool lionStickerActive = false;
-    public static bool giraffeStickerActive = false;
-
     // Information on animals
     public static Dictionary<string, Dictionary<string, string[]>> animalInfo = new Dictionary<string, Dictionary<string, string[]>>()
     {

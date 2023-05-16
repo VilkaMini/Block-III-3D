@@ -7,8 +7,7 @@ public class ViewCameraControl : MonoBehaviour
     private Transform focalPoint;
     public Camera c;
     private Transform cam;
-    //public FixedJoystick joystick;
-    //public FloatingJoystick viewJoystick;
+    public JoyStickController joystick;
 
     // Internal variables
     private float rotationY;
@@ -24,7 +23,6 @@ public class ViewCameraControl : MonoBehaviour
     public bool movingDownt;
 
     // External
-    public bool lockView = false;
     public float cameraSpeed = 0.5f;
     public float cameraMoveSpeed = 2f;
     public int cameraDeadZone = 20;
@@ -49,35 +47,30 @@ public class ViewCameraControl : MonoBehaviour
     void Update()
     {
         // Run logic
-        //CameraSpin(joystick.Horizontal);
-        //CameraTilt(joystick.Vertical);
+        CameraSpin();
+        CameraTilt();
         CameraMove();
         CameraZoom();
     }
 
     // Horizontal camera spin 
-    private void CameraSpin(float joystickInput)
+    private void CameraSpin()
     {
-        float horizontalMove = joystickInput * cameraSpeed;
-        if (!lockView)
-        {
-            rotationY += -horizontalMove;
-            focalPoint.rotation = Quaternion.Euler(rotationX, rotationY, 0);
-        }
+        float horizontalMove =  joystick.horizontal * cameraSpeed * 0.2f;
+        rotationY += -horizontalMove;
+        focalPoint.rotation = Quaternion.Euler(rotationX, rotationY, 0);
     }
 
     // Vertical camera tilts
-    private void CameraTilt(float joystickInput)
+    private void CameraTilt()
     {
-        float verticalMove = joystickInput * cameraSpeed * 0.2f;
-        if (!lockView)
-        {
-            // Check for rotation before applying
-            var RotCheckVal = rotationX + verticalMove;
-            if (-10 <= RotCheckVal && RotCheckVal <= 10){ rotationX += verticalMove;}
+        float verticalMove =  joystick.vertical * cameraSpeed * 0.2f;
 
-            focalPoint.rotation = Quaternion.Euler(rotationX, rotationY, 0);
-        }
+        // Check for rotation before applying
+        var RotCheckVal = rotationX + verticalMove;
+        if (-10 <= RotCheckVal && RotCheckVal <= 10){ rotationX += verticalMove;}
+
+        focalPoint.rotation = Quaternion.Euler(rotationX, rotationY, 0);
     }
 
     // Move Camera inside the focal point

@@ -11,6 +11,7 @@ TagManager:
   - Ears
   - Sticker
   - Egg
+  - Joystick
   layers:
   - Default
   - TransparentFX

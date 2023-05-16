@@ -7,8 +7,8 @@ public class ViewCameraControl : MonoBehaviour
     private Transform focalPoint;
     public Camera c;
     private Transform cam;
-    public FixedJoystick joystick;
-    public FloatingJoystick viewJoystick;
+    //public FixedJoystick joystick;
+    //public FloatingJoystick viewJoystick;
 
     // Internal variables
     private float rotationY;
@@ -49,8 +49,8 @@ public class ViewCameraControl : MonoBehaviour
     void Update()
     {
         // Run logic
-        CameraSpin(joystick.Horizontal);
-        CameraTilt(joystick.Vertical);
+        //CameraSpin(joystick.Horizontal);
+        //CameraTilt(joystick.Vertical);
         CameraMove();
         CameraZoom();
     }
@@ -84,10 +84,10 @@ public class ViewCameraControl : MonoBehaviour
     private void CameraMove()
     {
         // Check for deadzones
-        var RotTempValX = horizontalAddition + viewJoystick.Horizontal * cameraMoveSpeed;
-        var RotTempValY = verticalAddition + viewJoystick.Vertical * -cameraMoveSpeed;
-        if (-cameraDeadZone <= RotTempValX && RotTempValX <= cameraDeadZone) { horizontalAddition += viewJoystick.Horizontal * cameraMoveSpeed; }
-        if (-cameraDeadZone <= RotTempValY && RotTempValY <= cameraDeadZone) { verticalAddition += viewJoystick.Vertical * -cameraMoveSpeed; }
+        //var RotTempValX = horizontalAddition + viewJoystick.Horizontal * cameraMoveSpeed;
+        //var RotTempValY = verticalAddition + viewJoystick.Vertical * -cameraMoveSpeed;
+        //if (-cameraDeadZone <= RotTempValX && RotTempValX <= cameraDeadZone) { horizontalAddition += viewJoystick.Horizontal * cameraMoveSpeed; }
+        //if (-cameraDeadZone <= RotTempValY && RotTempValY <= cameraDeadZone) { verticalAddition += viewJoystick.Vertical * -cameraMoveSpeed; }
 
         cam.rotation = Quaternion.Euler(rotationX + verticalAddition, rotationY + horizontalAddition, 0);
     }

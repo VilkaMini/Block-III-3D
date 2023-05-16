@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1399,6 +1399,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   focalPoint: {fileID: 442736152}
+  settingsPanel: {fileID: 0}
+  stickerPanel: {fileID: 0}
+  cameraController: {fileID: 0}
+  movementSensSlider: {fileID: 0}
+  movSensNumber: {fileID: 0}
+  cameraSensSlider: {fileID: 0}
+  camSensNumber: {fileID: 0}
 --- !u!114 &1078443324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1416,9 +1423,7 @@ MonoBehaviour:
   viewCamera: {fileID: 139727868}
   watergun: {fileID: 0}
   informationPanel: {fileID: 1845778218}
-  selectionMenu: {fileID: 2113334970}
   foodSelectionMenu: {fileID: 1082039671}
-  stickerInformationalPanel: {fileID: 949781290}
   rhinoSticker: {fileID: 20574650}
   lionSticker: {fileID: 80552868}
   giraffeSticker: {fileID: 48060533}
@@ -19720,7 +19725,7 @@ PrefabInstance:
     - target: {fileID: 6454591558221965551, guid: b61bb196954a1ce44924fe6d4e91dece, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 7539f538c3cd88348bf17be9a539b08f, type: 2}
+      objectReference: {fileID: 2100000, guid: 296d2af39601b934393fe2ef08e47231, type: 2}
     - target: {fileID: 6455168955350974944, guid: b61bb196954a1ce44924fe6d4e91dece, type: 3}
       propertyPath: m_DynamicOccludee
       value: 1

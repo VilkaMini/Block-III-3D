@@ -1,22 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class JoyStickController : MonoBehaviour
 {
+    // Directions
     public float vertical;
     public float horizontal;
 
+    // Joystick objects / required objects
     public RectTransform joystickTransform;
     public RectTransform stick;
     private Vector3 startPos;
     public Camera cam;
 
+    // Variables
     private Touch joystickTouch;
 
     public bool dragging = false;
 
+    // On Awake check position of stick
     private void Awake()
     {
         startPos = stick.position;
@@ -24,6 +25,7 @@ public class JoyStickController : MonoBehaviour
 
     private void Update()
     {
+        // if there is a touch 
         if (Input.touchCount > 0)
         {
             for (int i = 0; i < Input.touchCount; i++)
@@ -33,6 +35,7 @@ public class JoyStickController : MonoBehaviour
                 Vector2 localPoint;
                 RectTransformUtility.ScreenPointToLocalPointInRectangle(joystickTransform, touchPosition, null, out localPoint);
 
+                // Check if touch in joystick rectangle
                 if (joystickTransform.rect.Contains(localPoint))
                 {
                     joystickTouch = touch;
@@ -40,12 +43,10 @@ public class JoyStickController : MonoBehaviour
                     stick.position = touchPosition;
                     CalculateNormalizedDirection();
                 }
-                else
-                {
-                    dragging = false;
-                }
+                else{dragging = false;}
             }
         }
+        // If the touch exists
         if (dragging)
         {
             Vector2 touchPosition = joystickTouch.position;

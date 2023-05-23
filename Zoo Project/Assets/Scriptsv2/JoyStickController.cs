@@ -9,11 +9,14 @@ public class JoyStickController : MonoBehaviour
     // Joystick objects / required objects
     public RectTransform joystickTransform;
     public RectTransform stick;
-    private Vector3 startPos;
+    public Vector3 startPos;
+    public Vector2 touchPosition;
     public Camera cam;
 
     // Variables
     private Touch joystickTouch;
+    public Vector2 initialTouch;
+    public bool initialTouchRecorded;
 
     public bool dragging = false;
 
@@ -31,7 +34,7 @@ public class JoyStickController : MonoBehaviour
             for (int i = 0; i < Input.touchCount; i++)
             {
                 Touch touch = Input.GetTouch(i);
-                Vector2 touchPosition = touch.position;
+                touchPosition = touch.position;
                 Vector2 localPoint;
                 RectTransformUtility.ScreenPointToLocalPointInRectangle(joystickTransform, touchPosition, null, out localPoint);
 
@@ -44,6 +47,11 @@ public class JoyStickController : MonoBehaviour
                     CalculateNormalizedDirection();
                 }
                 else{dragging = false;}
+                if (!initialTouchRecorded)
+                {
+                    initialTouch = touchPosition;
+                    initialTouchRecorded = true;
+                }
             }
         }
         // If the touch exists
@@ -61,6 +69,7 @@ public class JoyStickController : MonoBehaviour
             {
                 dragging = false;
                 stick.position = startPos;
+                initialTouchRecorded = false;
             }
         }
         else

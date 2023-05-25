@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -23,12 +25,12 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         // Setup movement sensitivity slider
-        movementSensSlider.value = cameraController.cameraSpeed;
-        movSensNumber.text = ((int)movementSensSlider.value).ToString();
+        movementSensSlider.value = cameraController.cameraArmMovementSpeed;
+        movSensNumber.text = (movementSensSlider.value).ToString();
         movementSensSlider.onValueChanged.AddListener(delegate { MovementSensitivityControl(); });
         // Setup camera sensitivity slider
         cameraSensSlider.value = cameraController.cameraMoveSpeed;
-        camSensNumber.text = ((int)cameraSensSlider.value).ToString();
+        camSensNumber.text = (cameraSensSlider.value).ToString();
         cameraSensSlider.onValueChanged.AddListener(delegate { CameraSensitivityControl(); });
     }
 
@@ -41,14 +43,14 @@ public class GameController : MonoBehaviour
 
     public void MovementSensitivityControl()
     {
-        cameraController.cameraSpeed = movementSensSlider.value;
-        movSensNumber.text = ((int) movementSensSlider.value).ToString();
+        cameraController.cameraArmMovementSpeed = movementSensSlider.value;
+        movSensNumber.text = (Math.Round((decimal)movementSensSlider.value, 2)).ToString();
     }
 
     public void CameraSensitivityControl()
     {
         cameraController.cameraMoveSpeed = cameraSensSlider.value;
-        camSensNumber.text = ((int)cameraSensSlider.value).ToString();
+        camSensNumber.text = (Math.Round((decimal)cameraSensSlider.value, 2)).ToString();
     }
 
     // Sticker panel
@@ -56,5 +58,14 @@ public class GameController : MonoBehaviour
     public void ControlStickerPanel()
     {
         stickerPanel.SetActive(!stickerPanel.activeSelf);
+    }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene(sceneName: "ZooRoomRhino");
+    }
+    public void OpenProfile()
+    {
+        // Open panel with profile
     }
 }

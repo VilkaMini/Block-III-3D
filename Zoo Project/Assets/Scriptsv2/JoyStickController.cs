@@ -15,8 +15,6 @@ public class JoyStickController : MonoBehaviour
 
     // Variables
     private Touch joystickTouch;
-    public Vector2 initialTouch;
-    public bool initialTouchRecorded;
 
     public bool dragging = false;
 
@@ -47,11 +45,6 @@ public class JoyStickController : MonoBehaviour
                     CalculateNormalizedDirection();
                 }
                 else{dragging = false;}
-                if (!initialTouchRecorded)
-                {
-                    initialTouch = touchPosition;
-                    initialTouchRecorded = true;
-                }
             }
         }
         // If the touch exists
@@ -69,7 +62,6 @@ public class JoyStickController : MonoBehaviour
             {
                 dragging = false;
                 stick.position = startPos;
-                initialTouchRecorded = false;
             }
         }
         else
@@ -85,5 +77,7 @@ public class JoyStickController : MonoBehaviour
         var heading = stick.position - startPos;
         vertical = (heading / heading.magnitude).y;
         horizontal = (heading / heading.magnitude).x;
+        print("Vertical:" + vertical);
+        print("Horizontal:" + horizontal);
     }
 }

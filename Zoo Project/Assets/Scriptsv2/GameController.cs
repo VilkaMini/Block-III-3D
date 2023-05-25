@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
-using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -60,12 +59,5 @@ public class GameController : MonoBehaviour
         stickerPanel.SetActive(!stickerPanel.activeSelf);
     }
 
-    public void StartGame()
-    {
-        SceneManager.LoadScene(sceneName: "ZooRoomRhino");
-    }
-    public void OpenProfile()
-    {
-        // Open panel with profile
-    }
+    
 }

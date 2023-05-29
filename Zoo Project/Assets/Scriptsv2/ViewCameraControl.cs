@@ -83,6 +83,8 @@ public class ViewCameraControl : MonoBehaviour
             if (-cameraDeadZone <= RotTempValY && RotTempValY <= cameraDeadZone) { cameraXAddition += Joystick.vertical * -cameraMoveSpeed; }
 
             cam.rotation = Quaternion.Euler(rotationX + cameraXAddition, rotationY + cameraYAddition, 0);
+            print("Horizontal: " + cameraXAddition);
+            print("Vertical: " + cameraYAddition);
         }
 
         // Zoom in and out control

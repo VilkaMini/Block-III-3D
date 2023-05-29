@@ -77,7 +77,5 @@ public class JoyStickController : MonoBehaviour
         var heading = stick.position - startPos;
         vertical = (heading / heading.magnitude).y;
         horizontal = (heading / heading.magnitude).x;
-        print("Vertical:" + vertical);
-        print("Horizontal:" + horizontal);
     }
 }

@@ -10,6 +10,10 @@ public class GameController : MonoBehaviour
     public GameObject settingsPanel;
     public GameObject stickerPanel;
 
+    // Initial values
+    public float initialMovementSens;
+    public float initialArmMovementSens;
+
     // Controllers
     public ViewCameraControl cameraController;
 
@@ -23,6 +27,10 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+        // Set initial values
+        initialMovementSens = cameraController.cameraMoveSpeed;
+        initialArmMovementSens = cameraController.cameraArmMovementSpeed;
+
         // Setup movement sensitivity slider
         movementSensSlider.value = cameraController.cameraArmMovementSpeed;
         movSensNumber.text = (movementSensSlider.value).ToString();
@@ -59,5 +67,14 @@ public class GameController : MonoBehaviour
         stickerPanel.SetActive(!stickerPanel.activeSelf);
     }
 
-    
+    public void ResetControls()
+    {
+        cameraController.cameraMoveSpeed = initialMovementSens;
+        cameraController.cameraArmMovementSpeed = initialArmMovementSens;
+
+        movementSensSlider.value = cameraController.cameraArmMovementSpeed;
+        cameraSensSlider.value = cameraController.cameraMoveSpeed;
+        movSensNumber.text = (Math.Round((decimal)movementSensSlider.value, 2)).ToString();
+        camSensNumber.text = (Math.Round((decimal)cameraSensSlider.value, 2)).ToString();
+    }
 }

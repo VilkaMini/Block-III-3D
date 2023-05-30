@@ -2,6 +2,7 @@ using TMPro;
 using UnityEngine;
 using System;
 using System.Linq;
+using System.Collections.Generic;
 
 public class ScanModeController : MonoBehaviour
 {
@@ -32,6 +33,8 @@ public class ScanModeController : MonoBehaviour
     public TextMeshProUGUI extraText;
     public TextMeshProUGUI partsScanned;
 
+    public List<TextMeshProUGUI> bodyPartTexts;
+
     private void Awake()
     {
         watergun.Stop();
@@ -55,29 +58,14 @@ public class ScanModeController : MonoBehaviour
         {
             // Check ray collider tag and display correct text based on tag
             string part = hit.collider.tag;
-            string[] partList = { "Head", "Body", "Ears", "Back Legs", "Front Legs", "Sticker", "Egg", "Horns"};
+            string[] partList = { "Head", "Body", "Ears", "Back Legs", "Front Legs", "Egg", "Horns"};
             print(part);
 
             // Check if list contains the part
             if (partList.Contains(part))
             {
-                if (part == "Egg")
-                {
-                    OpenInformationPanel("Spoopy The Queen!", "You found Spoopy the Queen easter cat!", "You may proceed now...");
-                }
-                else if(part == "Sticker")
-                {
-                    if (animalID == "Rhino"){ rhinoSticker.SetActive(true);}
-
-                    Destroy(stickerObject);
-                    CloseInformationPanel();
-                    //ControlStickerPanel();
-                }
-                else
-                {
-                    UpdateStats(part);
-                    OpenInformationPanel(Storage.animalInfo[animalID][part][0], Storage.animalInfo[animalID][part][1], Storage.animalInfo[animalID][part][2]);
-                }
+                UpdateStats(part);
+                OpenInformationPanel(Storage.animalInfo[animalID][part][0], Storage.animalInfo[animalID][part][1], Storage.animalInfo[animalID][part][2]);
             }
             else
             {
@@ -177,9 +165,18 @@ public class ScanModeController : MonoBehaviour
         if (!Storage.animalPartsScanned[animalID].Contains(part))
         {
             Storage.animalPartsScanned[animalID].Add(part);
-            partsScannedCount++;
-            partsScanned.text = String.Format("Scanned: {0} / 5", partsScannedCount);
-;
+            for (int i=0; i< bodyPartTexts.Count; i++)
+            {
+                if (bodyPartTexts[i].text == part)
+                {
+                    bodyPartTexts[i].color = Color.green;
+                }
+            }
         }
+    }
+
+    private void UpdateScannedObjects()
+    {
+
     }
 }

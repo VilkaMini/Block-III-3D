@@ -834,7 +834,7 @@ GameObject:
   - component: {fileID: 335879565}
   - component: {fileID: 335879564}
   m_Layer: 5
-  m_Name: Part (4)
+  m_Name: Front Legs Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1558,7 +1558,6 @@ RectTransform:
   - {fileID: 1885806179}
   - {fileID: 1958633470}
   - {fileID: 1591306082}
-  - {fileID: 1891538931}
   - {fileID: 1414779113}
   - {fileID: 1833092835}
   m_Father: {fileID: 257392115}
@@ -1619,7 +1618,7 @@ GameObject:
   - component: {fileID: 514434226}
   - component: {fileID: 514434225}
   m_Layer: 5
-  m_Name: Part (2)
+  m_Name: Ears Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2051,7 +2050,7 @@ GameObject:
   - component: {fileID: 558990681}
   - component: {fileID: 558990680}
   m_Layer: 5
-  m_Name: Part (3)
+  m_Name: Mouth Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7248,7 +7247,7 @@ GameObject:
   - component: {fileID: 746074258}
   - component: {fileID: 746074257}
   m_Layer: 5
-  m_Name: Part
+  m_Name: Body Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7893,7 +7892,7 @@ GameObject:
   - component: {fileID: 877345974}
   - component: {fileID: 877345973}
   m_Layer: 5
-  m_Name: Part (1)
+  m_Name: Head Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8552,6 +8551,18 @@ MonoBehaviour:
   mainText: {fileID: 1759504398}
   extraText: {fileID: 1240922010}
   partsScanned: {fileID: 1880146098}
+  bodyPartTexts:
+  - {fileID: 746074257}
+  - {fileID: 877345973}
+  - {fileID: 514434225}
+  - {fileID: 558990680}
+  - {fileID: 335879564}
+  - {fileID: 1420244298}
+  - {fileID: 1885806180}
+  - {fileID: 1958633471}
+  - {fileID: 1591306083}
+  - {fileID: 1414779114}
+  - {fileID: 1833092836}
 --- !u!1 &1082039671
 GameObject:
   m_ObjectHideFlags: 0
@@ -9934,7 +9945,7 @@ GameObject:
   - component: {fileID: 1414779115}
   - component: {fileID: 1414779114}
   m_Layer: 5
-  m_Name: Part (10)
+  m_Name: Feaces Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9953,7 +9964,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 508401963}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -10069,7 +10080,7 @@ GameObject:
   - component: {fileID: 1420244299}
   - component: {fileID: 1420244298}
   m_Layer: 5
-  m_Name: Part (5)
+  m_Name: Back Legs Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11371,7 +11382,7 @@ GameObject:
   - component: {fileID: 1591306084}
   - component: {fileID: 1591306083}
   m_Layer: 5
-  m_Name: Part (8)
+  m_Name: Bird Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12074,7 +12085,7 @@ GameObject:
   - component: {fileID: 1833092837}
   - component: {fileID: 1833092836}
   m_Layer: 5
-  m_Name: Part (11)
+  m_Name: Waterhole Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12093,7 +12104,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 508401963}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -12590,7 +12601,7 @@ GameObject:
   - component: {fileID: 1885806181}
   - component: {fileID: 1885806180}
   m_Layer: 5
-  m_Name: Part (6)
+  m_Name: Tree Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12712,141 +12723,6 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1885806178}
-  m_CullTransparentMesh: 1
---- !u!1 &1891538930
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1891538931}
-  - component: {fileID: 1891538933}
-  - component: {fileID: 1891538932}
-  m_Layer: 5
-  m_Name: Part (9)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1891538931
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1891538930}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 508401963}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -40, y: -245.1}
-  m_SizeDelta: {x: 100, y: 35}
-  m_Pivot: {x: 0.5, y: 1}
---- !u!114 &1891538932
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1891538930}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_text: Tree
-  m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ccf0c2fd1db0cdc428634a1ba0741ba8, type: 2}
-  m_sharedMaterial: {fileID: -3239101490917474740, guid: ccf0c2fd1db0cdc428634a1ba0741ba8, type: 2}
-  m_fontSharedMaterials: []
-  m_fontMaterial: {fileID: 0}
-  m_fontMaterials: []
-  m_fontColor32:
-    serializedVersion: 2
-    rgba: 4285756275
-  m_fontColor: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 1}
-  m_enableVertexGradient: 0
-  m_colorMode: 3
-  m_fontColorGradient:
-    topLeft: {r: 1, g: 1, b: 1, a: 1}
-    topRight: {r: 1, g: 1, b: 1, a: 1}
-    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
-    bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 0}
-  m_spriteAsset: {fileID: 0}
-  m_tintAllSprites: 0
-  m_StyleSheet: {fileID: 0}
-  m_TextStyleHashCode: -1183493901
-  m_overrideHtmlColors: 0
-  m_faceColor:
-    serializedVersion: 2
-    rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
-  m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
-  m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
-  m_textAlignment: 65535
-  m_characterSpacing: 0
-  m_wordSpacing: 0
-  m_lineSpacing: 0
-  m_lineSpacingMax: 0
-  m_paragraphSpacing: 0
-  m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
-  m_wordWrappingRatios: 0.4
-  m_overflowMode: 0
-  m_linkedTextComponent: {fileID: 0}
-  parentLinkedComponent: {fileID: 0}
-  m_enableKerning: 1
-  m_enableExtraPadding: 0
-  checkPaddingRequired: 0
-  m_isRichText: 1
-  m_parseCtrlCharacters: 1
-  m_isOrthographic: 1
-  m_isCullingEnabled: 0
-  m_horizontalMapping: 0
-  m_verticalMapping: 0
-  m_uvLineOffset: 0
-  m_geometrySortingOrder: 0
-  m_IsTextObjectScaleStatic: 0
-  m_VertexBufferAutoSizeReduction: 0
-  m_useMaxVisibleDescender: 1
-  m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_isUsingLegacyAnimationComponent: 0
-  m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
-  m_baseMaterial: {fileID: 0}
-  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &1891538933
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1891538930}
   m_CullTransparentMesh: 1
 --- !u!1 &1936240673
 GameObject:
@@ -12995,7 +12871,7 @@ GameObject:
   - component: {fileID: 1958633472}
   - component: {fileID: 1958633471}
   m_Layer: 5
-  m_Name: Part (7)
+  m_Name: Grass Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

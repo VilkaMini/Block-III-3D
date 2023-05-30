@@ -9401,7 +9401,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -1966.9153, y: -178.30902, z: -1865.3071, w: -435.6246}
+  m_margin: {x: -1829.8533, y: -178.30902, z: -1728.2705, w: -435.6246}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -9612,6 +9612,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f70e8ce2be333e640917a2aa13e70d42, type: 3}
   m_PrefabInstance: {fileID: 1588684171}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1339159058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1339159059}
+  - component: {fileID: 1339159060}
+  m_Layer: 0
+  m_Name: Horns Object
+  m_TagString: Horns
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1339159059
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339159058}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.686, z: 2.413}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1274807175}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1339159060
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339159058}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.31747043, y: 0.6470683, z: 0.7314868}
+  m_Center: {x: 0.063333854, y: 0.17646584, z: 0.18150067}
 --- !u!1 &1366061132
 GameObject:
   m_ObjectHideFlags: 0
@@ -11935,7 +11980,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -1989.623, y: -332.15582, z: -1933.0876, w: -577.9643}
+  m_margin: {x: -1846.2456, y: -332.15582, z: -1757.7625, w: -577.9643}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -12169,7 +12214,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1845778219
 RectTransform:
   m_ObjectHideFlags: 0

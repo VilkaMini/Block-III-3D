@@ -12,6 +12,7 @@ TagManager:
   - Sticker
   - Egg
   - Joystick
+  - Horns
   layers:
   - Default
   - TransparentFX

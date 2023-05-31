@@ -42,10 +42,7 @@ public class ScanModeController : MonoBehaviour
 
     void Update()
     {
-        if (Input.touchCount > 0) 
-        {
-            CheckGaze();
-        }
+        CheckGaze();
     }
 
     // Check for raycast to animal part and display correct info
@@ -59,7 +56,6 @@ public class ScanModeController : MonoBehaviour
             // Check ray collider tag and display correct text based on tag
             string part = hit.collider.tag;
             string[] partList = { "Head", "Body", "Ears", "Back Legs", "Front Legs", "Egg", "Horns"};
-            print(part);
 
             // Check if list contains the part
             if (partList.Contains(part))

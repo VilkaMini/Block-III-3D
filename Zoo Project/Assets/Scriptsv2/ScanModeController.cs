@@ -8,8 +8,8 @@ public class ScanModeController : MonoBehaviour
 {
     // Animal
     public string animalID = "";
-    private int partsScannedCount = 0;
     public Animator animalAnimator;
+    public string lastPartHit;
 
     // Camera
     public Camera viewCamera;
@@ -34,6 +34,7 @@ public class ScanModeController : MonoBehaviour
     public TextMeshProUGUI partsScanned;
 
     public List<TextMeshProUGUI> bodyPartTexts;
+    public Animator stickerPanelAnim;
 
     private void Awake()
     {
@@ -55,18 +56,26 @@ public class ScanModeController : MonoBehaviour
         {
             // Check ray collider tag and display correct text based on tag
             string part = hit.collider.tag;
-            string[] partList = { "Head", "Body", "Ears", "Back Legs", "Front Legs", "Egg", "Horns"};
-
-            // Check if list contains the part
-            if (partList.Contains(part))
-            {
-                UpdateStats(part);
-                OpenInformationPanel(Storage.animalInfo[animalID][part][0], Storage.animalInfo[animalID][part][1], Storage.animalInfo[animalID][part][2]);
+            string[] partList = { "Head", "Body", "Ears", "Back Legs", "Front Legs", "Egg", "Horns", "Mouth", "Tree"};
+            if (lastPartHit != part) {
+                // Check if list contains the part
+                if (partList.Contains(part))
+                {
+                    lastPartHit = part;
+                    UpdateStats(part);
+                    OpenInformationPanel(Storage.animalInfo[animalID][part][0], Storage.animalInfo[animalID][part][1], Storage.animalInfo[animalID][part][2]);
+                }
+                else
+                {
+                    lastPartHit = null;
+                    CloseInformationPanel();
+                }
             }
-            else
-            {
-                CloseInformationPanel();
-            }
+        }
+        else
+        {
+            lastPartHit = null;
+            CloseInformationPanel();
         }
     }
 
@@ -171,8 +180,9 @@ public class ScanModeController : MonoBehaviour
         }
     }
 
-    private void UpdateScannedObjects()
+    public void ControlStickerPanel()
     {
-
+        stickerPanelAnim.SetBool("State", !stickerPanelAnim.GetBool("State"));
+        print(stickerPanelAnim.GetBool("State"));
     }
 }

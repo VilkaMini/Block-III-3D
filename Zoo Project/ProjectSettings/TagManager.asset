@@ -13,6 +13,8 @@ TagManager:
   - Egg
   - Joystick
   - Horns
+  - Mouth
+  - Tree
   layers:
   - Default
   - TransparentFX

@@ -3892,8 +3892,43 @@ PrefabInstance:
       propertyPath: m_Name
       value: new acacia tree
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b61bb196954a1ce44924fe6d4e91dece, type: 3}
+      propertyPath: m_TagString
+      value: Tree
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b61bb196954a1ce44924fe6d4e91dece, type: 3}
+--- !u!1 &1539202148775342869 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b61bb196954a1ce44924fe6d4e91dece, type: 3}
+  m_PrefabInstance: {fileID: 1845686272904433220}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &6281232161097272096
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539202148775342869}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.45134723, y: 1.904594, z: 0.71983016}
+  m_Center: {x: 0.08054904, y: 0.94483215, z: 0.06689746}
+--- !u!65 &6583358119993513998
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539202148775342869}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.6652768, y: 1.0018198, z: 1.768969}
+  m_Center: {x: -0.13081725, y: 2.4046671, z: 0.20249873}
 --- !u!4 &2168351964666390959 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b61bb196954a1ce44924fe6d4e91dece, type: 3}

@@ -42,7 +42,7 @@ public class ViewCameraControl : MonoBehaviour
         Cursor.lockState= CursorLockMode.Locked;
 
         // Set initial rotation of camera
-        rotationY = -120;
+        rotationY = 140;
     }
 
     // Update is called once per frame
@@ -83,8 +83,6 @@ public class ViewCameraControl : MonoBehaviour
             if (-cameraDeadZone <= RotTempValY && RotTempValY <= cameraDeadZone) { cameraXAddition += Joystick.vertical * -cameraMoveSpeed; }
 
             cam.rotation = Quaternion.Euler(rotationX + cameraXAddition, rotationY + cameraYAddition, 0);
-            print("Horizontal: " + cameraXAddition);
-            print("Vertical: " + cameraYAddition);
         }
 
         // Zoom in and out control

@@ -13,6 +13,8 @@ public static class Storage
                                                       {"Front Legs", new string[] {"Front Legs", "The front legs of a rhinoceros are powerful and adapted to support its massive body. These legs provide stability and strength for the rhino's movements.", "They allow it to navigate challenging terrain. They play a crucial role in activities such as running or defending territories."}},
                                                       {"Back Legs", new string[] {"Back Legs", "The back legs of a rhinoceros are strong and vital for its mobility and survival. They provide the necessary power to move quickly and efficiently, allowing it to escape from predators.", "The back legs also play a crucial role in supporting the rhino's weight and balance, enabling it to navigate uneven terrain."}},
                                                       {"Horns", new string[] {"Horns", "The horn of a rhinoceros is a prominent and iconic feature. It is composed of keratin, the same material as human hair and nails, and grows from the skin on the rhino's nose.", "The horns are used for defense against predators and to establish dominance within their social hierarchy."}},
+                                                      {"Mouth", new string[] {"Mouth", "", ""}},
+                                                      {"Tree", new string[] {"Tree", "", ""}},
                                                     } 
         },
     };

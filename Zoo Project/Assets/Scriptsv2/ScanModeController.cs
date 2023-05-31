@@ -35,6 +35,7 @@ public class ScanModeController : MonoBehaviour
 
     public List<TextMeshProUGUI> bodyPartTexts;
     public Animator stickerPanelAnim;
+    public GameObject stickerExtendButton;
 
     private void Awake()
     {
@@ -183,6 +184,7 @@ public class ScanModeController : MonoBehaviour
     public void ControlStickerPanel()
     {
         stickerPanelAnim.SetBool("State", !stickerPanelAnim.GetBool("State"));
+        stickerExtendButton.SetActive(!stickerExtendButton.activeSelf);
         print(stickerPanelAnim.GetBool("State"));
     }
 }

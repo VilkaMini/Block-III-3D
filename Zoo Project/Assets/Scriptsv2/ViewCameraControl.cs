@@ -132,6 +132,7 @@ public class ViewCameraControl : MonoBehaviour
     }
     public void ZoomOut(int value)
     {
+        print("Hw");
         if (value == 1) { zoomOut = true; }
         else { zoomOut = false; }
     }

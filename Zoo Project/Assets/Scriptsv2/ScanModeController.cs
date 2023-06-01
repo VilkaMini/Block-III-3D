@@ -37,6 +37,9 @@ public class ScanModeController : MonoBehaviour
     public Animator stickerPanelAnim;
     public GameObject stickerExtendButton;
 
+    public Animator statisticsPanelAnim;
+    public GameObject statisticsExtendButton;
+
     private void Awake()
     {
         watergun.Stop();
@@ -185,6 +188,12 @@ public class ScanModeController : MonoBehaviour
     {
         stickerPanelAnim.SetBool("State", !stickerPanelAnim.GetBool("State"));
         stickerExtendButton.SetActive(!stickerExtendButton.activeSelf);
-        print(stickerPanelAnim.GetBool("State"));
+    }
+
+    public void ControlStatisticsPanel()
+    {
+        statisticsPanelAnim.SetBool("State", !statisticsPanelAnim.GetBool("State"));
+        statisticsExtendButton.SetActive(!statisticsExtendButton.activeSelf);
+        print(statisticsPanelAnim.GetBool("State"));
     }
 }

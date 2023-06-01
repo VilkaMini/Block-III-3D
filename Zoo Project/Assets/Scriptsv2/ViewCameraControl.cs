@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ViewCameraControl : MonoBehaviour
 {
@@ -6,6 +7,8 @@ public class ViewCameraControl : MonoBehaviour
     public Camera c;
     private Transform cam;
     public JoyStickController Joystick;
+    public Slider zoomPercentageSlider;
+    public RectTransform SliderHandle;
 
     // Internal variables
     private float rotationY;
@@ -132,9 +135,15 @@ public class ViewCameraControl : MonoBehaviour
     }
     public void ZoomOut(int value)
     {
-        print("Hw");
         if (value == 1) { zoomOut = true; }
         else { zoomOut = false; }
+    }
+
+    // Zoom Slider
+    public void SliderReactToChange()
+    {
+        float sliderValue = zoomPercentageSlider.value;
+        SliderHandle.localScale = new Vector3(1 + sliderValue, 1 + sliderValue, 1 + sliderValue);
     }
 
 }

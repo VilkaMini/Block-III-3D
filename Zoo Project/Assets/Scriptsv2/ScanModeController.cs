@@ -4,6 +4,7 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 
+
 public class ScanModeController : MonoBehaviour
 {
     // Animal
@@ -47,16 +48,22 @@ public class ScanModeController : MonoBehaviour
 
     void Update()
     {
-        CheckGaze();
+        if (Input.GetMouseButtonDown(0))
+        {
+            CheckGaze();
+        }
     }
 
     // Check for raycast to animal part and display correct info
     private void CheckGaze()
     {
         // Cast ray
-        Ray gazeRay = new Ray(viewCamera.transform.position, viewCamera.transform.rotation * Vector3.forward);
+        //Ray gazeRay = new Ray(viewCamera.transform.position, viewCamera.transform.rotation * Vector3.forward);
+        //RaycastHit hit;
         RaycastHit hit;
-        if (Physics.Raycast(gazeRay, out hit, Mathf.Infinity))
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
         {
             // Check ray collider tag and display correct text based on tag
             string part = hit.collider.tag;

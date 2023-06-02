@@ -24,9 +24,8 @@ public class ScanModeController : MonoBehaviour
 
     //Sticker objects
     public GameObject rhinoSticker;
-    public GameObject lionSticker;
-    public GameObject giraffeSticker;
-    public GameObject stickerObject;
+    public GameObject rhinoStickerSilouete;
+    public bool isStickerObtained;
 
     // UI text in informationPanel
     public TextMeshProUGUI headerText;
@@ -34,7 +33,7 @@ public class ScanModeController : MonoBehaviour
     public TextMeshProUGUI extraText;
     public TextMeshProUGUI partsScanned;
 
-    public List<TextMeshProUGUI> bodyPartTexts;
+    public List<GameObject> bodyParts;
     public Animator stickerPanelAnim;
     public GameObject stickerExtendButton;
 
@@ -178,17 +177,47 @@ public class ScanModeController : MonoBehaviour
 
 
     // Update stats
-
     private void UpdateStats(string part)
     {
+        // Update list with new part if it is new part
         if (!Storage.animalPartsScanned[animalID].Contains(part))
         {
             Storage.animalPartsScanned[animalID].Add(part);
-            for (int i=0; i< bodyPartTexts.Count; i++)
+            for (int i=0; i< bodyParts.Count; i++)
             {
-                if (bodyPartTexts[i].text == part)
+                if (bodyParts[i].name == part)
                 {
-                    bodyPartTexts[i].color = Color.green;
+                    bodyParts[i].SetActive(true);
+                }
+            }
+        }
+        // Check if sticker is collected
+        if (!isStickerObtained)
+        {
+            // Check all bodyparts if they are collected
+            List<string> allBodyParts = new List<string> { "Head", "Body", "Ears", "Back Legs", "Front Legs", "Horns", "Mouth"}; 
+            for (int i=0; i < allBodyParts.Count; i++)
+            {
+                if (Storage.animalPartsScanned[animalID].Contains(allBodyParts[i]))
+                {
+                    // If all collected disable individual parts and display full sticker
+                    if (allBodyParts.Count-1 == i)
+                    {
+                        rhinoStickerSilouete.SetActive(false);
+                        rhinoSticker.SetActive(true);
+                        for (int k=0; k < bodyParts.Count; k++)
+                        {
+                            if (allBodyParts.Contains(bodyParts[k].name))
+                            {
+                                bodyParts[k].SetActive(false);
+                            }
+                        }
+                        isStickerObtained = true;
+                    }
+                }
+                else
+                {
+                    break;
                 }
             }
         }

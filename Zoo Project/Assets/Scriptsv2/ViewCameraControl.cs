@@ -42,7 +42,7 @@ public class ViewCameraControl : MonoBehaviour
 
         // Curso settings
         Cursor.visible= false;
-        Cursor.lockState= CursorLockMode.Locked;
+        //Cursor.lockState= CursorLockMode.Locked; disables sliders working ;//
 
         // Set initial rotation of camera
         rotationY = 140;
@@ -144,6 +144,7 @@ public class ViewCameraControl : MonoBehaviour
     {
         float sliderValue = zoomPercentageSlider.value;
         SliderHandle.localScale = new Vector3(1 + sliderValue, 1 + sliderValue, 1 + sliderValue);
+        fovVal = 60 - 40 * sliderValue;
     }
 
 }

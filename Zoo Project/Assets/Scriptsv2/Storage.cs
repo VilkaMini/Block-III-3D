@@ -15,6 +15,10 @@ public static class Storage
                                                       {"Horns", new string[] {"Horns", "The horn of a rhinoceros is a prominent and iconic feature. It is composed of keratin, the same material as human hair and nails, and grows from the skin on the rhino's nose.", "The horns are used for defense against predators and to establish dominance within their social hierarchy."}},
                                                       {"Mouth", new string[] {"Mouth", "", ""}},
                                                       {"Tree", new string[] {"Tree", "", ""}},
+                                                      {"Grass", new string[] {"Grass", "", ""}},
+                                                      {"Waterhole", new string[] {"Waterhole", "", ""}},
+                                                      {"Bird", new string[] {"Bird", "", ""}},
+                                                      {"Feces", new string[] {"Feces", "", ""}},
                                                     } 
         },
     };

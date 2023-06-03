@@ -69,7 +69,7 @@ public class ScanModeController : MonoBehaviour
         {
             // Check ray collider tag and display correct text based on tag
             string part = hit.collider.tag;
-            string[] partList = { "Head", "Body", "Ears", "Back Legs", "Front Legs", "Egg", "Horns", "Mouth", "Tree"};
+            string[] partList = { "Head", "Body", "Ears", "Back Legs", "Front Legs", "Horns", "Mouth", "Tree", "Grass", "Waterhole", "Bird", "Feces"};
             if (lastPartHit != part) {
                 // Check if list contains the part
                 if (partList.Contains(part))

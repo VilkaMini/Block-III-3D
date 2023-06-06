@@ -111,7 +111,7 @@ public class ScanModeController : MonoBehaviour
         informationPanel.SetActive(true);
     }
 
-    private void CloseInformationPanel()
+    public void CloseInformationPanel()
     {
         informationPanel.SetActive(false);
     }

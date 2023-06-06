@@ -14,11 +14,11 @@ public static class Storage
                                                       {"Back Legs", new string[] {"Back Legs", "The back legs of a rhinoceros are strong and vital for its mobility and survival. They provide the necessary power to move quickly and efficiently, allowing it to escape from predators.", "The back legs also play a crucial role in supporting the rhino's weight and balance, enabling it to navigate uneven terrain."}},
                                                       {"Horns", new string[] {"Horns", "The horn of a rhinoceros is a prominent and iconic feature. It is composed of keratin, the same material as human hair and nails, and grows from the skin on the rhino's nose.", "The horns are used for defense against predators and to establish dominance within their social hierarchy."}},
                                                       {"Mouth", new string[] {"Mouth", "", ""}},
-                                                      {"Tree", new string[] {"Tree", "", ""}},
-                                                      {"Grass", new string[] {"Grass", "", ""}},
-                                                      {"Waterhole", new string[] {"Waterhole", "", ""}},
-                                                      {"Bird", new string[] {"Bird", "", ""}},
-                                                      {"Feces", new string[] {"Feces", "", ""}},
+                                                      {"Tree", new string[] {"Tree", "Acacias are well adapted to deserts and tropical areas. Therefore, they have a wide distribution and are native to Australia, South Africa and South America", "The tall acacia trees of Africa provide an important food source for many animals and are safe host for insects such as ants."}},
+                                                      {"Grass", new string[] {"Grass", "The common finger grass is the African savanna's most important forage grass. Animals rely on the long-lived foliage through the dry season when most other types of grass become unpalatable.", "Reaches between 35 and 180 cm tall."}},
+                                                      {"Waterhole", new string[] {"Waterhole", "Animals flock from all over to congregate at the few vital sources of permanent water left in the landscape.", "As the dry season progresses, waterholes increasingly become dynamic communities of competition, predation, and social interaction."}},
+                                                      {"Bird", new string[] {"Bird", "The bird that often hitches a ride on rhinos' backs is called an oxpecker\r\nthey eat bugs and ticks off the rhino's skin.", "In addition, the oxpecker's important role is to serve as a warning system for rhinos, helping them stay vigilant and aware of potential threats. That's why they are known as the \"rhino's guard\" in Swahili."}},
+                                                      {"Feces", new string[] {"Feces", "Rhino droppings are unique identifiers, meaning that a rhino can take one whiff of a dung heap and instantly know the animal's age, sex, and reproductive status.", "All rhinos in a particular area head to a communal dumping ground to defecate called a “midden.”"}},
                                                     } 
         },
     };

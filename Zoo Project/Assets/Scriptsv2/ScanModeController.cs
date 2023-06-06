@@ -125,7 +125,6 @@ public class ScanModeController : MonoBehaviour
         print("Food choice 1");
         if (animalID == "Rhino")
         {
-            OpenInformationPanel("Food Selection", "Hey! I can't eat meat, I am strictly vegan and am planning to stay that way!", "I see you have something else in your pocket, may I try that?");
             animalAnimator.Play("Angry", 0, 0.0f);
         }
     }
@@ -136,7 +135,6 @@ public class ScanModeController : MonoBehaviour
         print("Food choice 2");
         if (animalID == "Rhino")
         {
-            OpenInformationPanel("Food Selection", "Aww I love this, that is my second-favorite food, can I get more?!", "I see more in your pockets.");
             animalAnimator.Play("Happy", 0, 0.0f);
             SpawnPoop();
         }
@@ -148,7 +146,6 @@ public class ScanModeController : MonoBehaviour
         print("Food choice 3");
         if (animalID == "Rhino")
         {
-            OpenInformationPanel("Food Selection", "Aww I love this, that is my favorite food, can I get more?!", "I see more in your pockets.");
             animalAnimator.Play("Happy", 0, 0.0f);
             SpawnPoop();
         }
@@ -160,7 +157,6 @@ public class ScanModeController : MonoBehaviour
         print("Food choice 4");
         if (animalID == "Rhino")
         {
-            OpenInformationPanel("Food Selection", "Hey! I can't eat chocolate, my tummy will bubble if I eat that, although it smells really nice.", "I see you have something else in your pocket, may I try that?");
             animalAnimator.Play("Angry", 0, 0.0f);
 
         }

@@ -31,17 +31,13 @@ public class ScanModeController : MonoBehaviour
     public TextMeshProUGUI headerText;
     public TextMeshProUGUI mainText;
     public TextMeshProUGUI extraText;
-    public TextMeshProUGUI partsScanned;
 
     public List<GameObject> bodyParts;
-    public Animator stickerPanelAnim;
-    public GameObject stickerExtendButton;
-
-    public Animator statisticsPanelAnim;
-    public GameObject statisticsExtendButton;
 
     public Animator settingsAnim;
     public GameObject settingsExtendButton;
+
+    public GameObject poop;
 
     private void Awake()
     {
@@ -111,7 +107,7 @@ public class ScanModeController : MonoBehaviour
         informationPanel.SetActive(true);
     }
 
-    private void CloseInformationPanel()
+    public void CloseInformationPanel()
     {
         informationPanel.SetActive(false);
     }
@@ -129,7 +125,6 @@ public class ScanModeController : MonoBehaviour
         print("Food choice 1");
         if (animalID == "Rhino")
         {
-            OpenInformationPanel("Food Selection", "Hey! I can't eat meat, I am strictly vegan and am planning to stay that way!", "I see you have something else in your pocket, may I try that?");
             animalAnimator.Play("Angry", 0, 0.0f);
         }
     }
@@ -140,8 +135,8 @@ public class ScanModeController : MonoBehaviour
         print("Food choice 2");
         if (animalID == "Rhino")
         {
-            OpenInformationPanel("Food Selection", "Aww I love this, that is my second-favorite food, can I get more?!", "I see more in your pockets.");
             animalAnimator.Play("Happy", 0, 0.0f);
+            SpawnPoop();
         }
     }
 
@@ -151,8 +146,8 @@ public class ScanModeController : MonoBehaviour
         print("Food choice 3");
         if (animalID == "Rhino")
         {
-            OpenInformationPanel("Food Selection", "Aww I love this, that is my favorite food, can I get more?!", "I see more in your pockets.");
             animalAnimator.Play("Happy", 0, 0.0f);
+            SpawnPoop();
         }
     }
 
@@ -162,7 +157,6 @@ public class ScanModeController : MonoBehaviour
         print("Food choice 4");
         if (animalID == "Rhino")
         {
-            OpenInformationPanel("Food Selection", "Hey! I can't eat chocolate, my tummy will bubble if I eat that, although it smells really nice.", "I see you have something else in your pocket, may I try that?");
             animalAnimator.Play("Angry", 0, 0.0f);
 
         }
@@ -223,21 +217,17 @@ public class ScanModeController : MonoBehaviour
         }
     }
 
-    public void ControlStickerPanel()
-    {
-        stickerPanelAnim.SetBool("State", !stickerPanelAnim.GetBool("State"));
-        stickerExtendButton.SetActive(!stickerExtendButton.activeSelf);
-    }
-
-    public void ControlStatisticsPanel()
-    {
-        statisticsPanelAnim.SetBool("State", !statisticsPanelAnim.GetBool("State"));
-        statisticsExtendButton.SetActive(!statisticsExtendButton.activeSelf);
-    }
-
     public void ControlSettingsPanel()
     {
         settingsAnim.SetBool("State", !settingsAnim.GetBool("State"));
         settingsExtendButton.SetActive(!settingsExtendButton.activeSelf);
+    }
+
+    public void SpawnPoop()
+    {
+        print("SpawnPoop");
+        GameObject new_poop = Instantiate(poop);
+        new_poop.transform.position = new Vector3(-1.525879e-05f, 1.5f, -1.995f);
+        new_poop.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, -5.0f);
     }
 }

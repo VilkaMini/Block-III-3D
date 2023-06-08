@@ -18,6 +18,7 @@ TagManager:
   - Grass
   - Waterhole
   - Feces
+  - Bird
   layers:
   - Default
   - TransparentFX

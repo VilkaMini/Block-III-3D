@@ -225,7 +225,6 @@ public class ScanModeController : MonoBehaviour
 
     public void SpawnPoop()
     {
-        print("SpawnPoop");
         GameObject new_poop = Instantiate(poop);
         new_poop.transform.position = new Vector3(-1.525879e-05f, 1.5f, -1.995f);
         new_poop.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, -5.0f);

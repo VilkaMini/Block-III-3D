@@ -41,7 +41,7 @@ public class ViewCameraControl : MonoBehaviour
         cam = c.transform;
 
         // Curso settings
-        Cursor.visible= false;
+        //Cursor.visible= false;
         //Cursor.lockState= CursorLockMode.Locked; disables sliders working ;//
 
         // Set initial rotation of camera
